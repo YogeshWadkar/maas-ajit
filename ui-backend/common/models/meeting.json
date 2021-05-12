@@ -1,0 +1,88 @@
+{
+  "name": "Meeting",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "meetingId": {
+      "type": "string",
+      "required": false
+    },
+    "topic": {
+      "type": "string",
+      "required": true
+    },
+    "zoomLink": {
+      "type": "string",
+      "required": false
+    },
+    "hasSeekerRated": {
+      "type": "string",
+      "required": true,
+      "default": false
+    },
+    "hasMentorRated": {
+      "type": "string",
+      "required": true,
+      "default": false
+    },
+    "hasTokenAllocated": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "hasChatLog": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "fromTm": {
+      "type": "date",
+      "required": true
+    },
+    "toTm": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "number",
+      "required": false
+    },
+    "agenda": {
+      "type": "string",
+      "required": false
+    },
+    "isForAssessment": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "mentorUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "seekerUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "assessment": {
+      "type": "belongsTo",
+      "model": "AssessmentRequest",
+      "foreignKey": ""
+    },
+    "status": {
+      "type": "belongsTo",
+      "model": "MeetingStatus",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

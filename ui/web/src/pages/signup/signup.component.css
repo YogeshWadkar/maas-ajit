@@ -1,0 +1,45 @@
+.left-panel {
+  background-color: #f06b4e;
+  color: white;
+}
+
+.left-panel img {
+  background-color: #a7594a;
+  border-radius: 65px;
+}
+
+.large-text {
+  font-size: 4em;
+}
+
+.medium-text {
+  font-size: 1.2em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.stretch-2-col {
+  width: 100%;
+}
+
+.heading-text {
+  font-size: 2.4em;
+}
+.signup-success {
+  width: 75%;
+  text-align: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.code-valid {
+  color: green;
+}
+
+.code-invalid {
+  color: red;
+}

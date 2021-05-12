@@ -1,0 +1,44 @@
+{
+    "name": "ProgramEnrolment",
+    "base": "TTBasePersistedModel",
+    "properties": {
+      "requestData": {
+        "type": "object",
+        "required": true
+      },
+      "certPath": {
+        "type": "string",
+        "required": false
+      }
+    },
+    "validations": [],
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "approvedByUser": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "program": {
+        "type": "belongsTo",
+        "model": "Program",
+        "foreignKey": ""
+      },
+      "form": {
+        "type": "belongsTo",
+        "model": "Form",
+        "foreignKey": ""
+      },
+      "status": {
+        "type": "belongsTo",
+        "model": "ProgramEnrolmentStatus",
+        "foreignKey": ""
+      }
+    },
+    "acls": [],
+    "methods": {}
+}

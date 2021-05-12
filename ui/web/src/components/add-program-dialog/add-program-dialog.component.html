@@ -1,0 +1,246 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content class="dialog-border">
+  <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch">
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+        <div class="promo-img-container">
+          <img [src]="imgPath || '/assets/images/no-promo-image.png'" />
+          <div class="on-img">
+              <tt-upload-file
+              *ngIf="!data.readOnly"
+              cmpId="pr-file-upload-1"
+              container="programfiles"
+              label="Upload"
+              icon="add_a_photo"
+              (uploaded)="onProgramImgSelected($event)"
+            ></tt-upload-file>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center" *ngIf="data.data && data.data.publicUrl" class="social-sharing">
+        <tt-social-sharing [repoUrl]="data.data.publicUrl" [text]="data.data.name + ' - ' + 'MaaS'" [imageUrl]="getImgUrl(data.data.imgPath)" [dec]="data.data.description"></tt-social-sharing>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center" *ngIf="data.data && data.data.publicUrl">
+        <div class="public-url">{{data.data.publicUrl}}</div>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start stretch">
+      <form
+      (ngSubmit)="onSubmit(programFormGroup.value)"
+      [formGroup]="programFormGroup"
+      class="form-container"
+    >
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Name"
+            required
+            formControlName="name"
+            cdkFocusInitial
+          />
+          <mat-error *ngIf="programFormGroup.get('name').hasError('required')">
+            Program Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Description"
+            required
+            formControlName="description"
+          ></textarea>
+          <mat-error
+            *ngIf="programFormGroup.get('description').hasError('required')"
+          >
+            Description is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            placeholder="Enrol By Date"
+            required
+            formControlName="enrolByDt"
+            [min]="minDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error
+            *ngIf="programFormGroup.get('enrolByDt').hasError('required')"
+          >
+            This field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="startDtPicker"
+            placeholder="Start Date"
+            required
+            formControlName="startDt"
+            [min]="startDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="startDtPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startDtPicker></mat-datepicker>
+          <mat-error
+            *ngIf="programFormGroup.get('startDt').hasError('required')"
+          >
+            This field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="endDtPicker"
+            placeholder="End Date"
+            required
+            formControlName="endDt"
+            [min]="endDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="endDtPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endDtPicker></mat-datepicker>
+          <mat-error *ngIf="programFormGroup.get('endDt').hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Promotion Text"
+            required
+            formControlName="text"
+          ></textarea>
+          <mat-error *ngIf="programFormGroup.get('text').hasError('required')">
+            Promotion Text is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Participation Criteria"
+            required
+            formControlName="criteria"
+          ></textarea>
+          <mat-error
+            *ngIf="programFormGroup.get('criteria').hasError('required')"
+          >
+            Program Participation Criteria is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Request Form</mat-label>
+          <mat-select required formControlName="selectedForm">
+            <mat-option *ngFor="let form of forms" [value]="form.id">{{
+              form.name
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="programFormGroup.get('selectedForm').hasError('required')"
+          >
+            Request Form is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Terms & Conditions URL"
+            required
+            formControlName="tncLink"
+          />
+          <mat-error
+            *ngIf="programFormGroup.get('tncLink').hasError('required')"
+          >
+            This field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field [ngClass]="{'mentor-input' : true, 'mat-form-field-invalid' : mentorsCtrl.invalid && mentorsCtrl.touched && mentors.length === 0}">
+          <mat-chip-list formControlName="selectedForm" 
+            #chipList
+            aria-label="Mentors selection"
+          >
+            <mat-chip
+              *ngFor="let mentor of mentors"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="removeMentor(mentor)"
+            >
+              {{ mentor.fullName }}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input 
+              placeholder="Allocate Mentors"
+              #mentorInput
+              [formControl]="mentorsCtrl"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addMentor($event)"
+            />
+          </mat-chip-list>
+          <mat-autocomplete 
+            #auto="matAutocomplete"
+            (optionSelected)="selected($event)"
+          >
+            <mat-option
+              *ngFor="let mentor of filteredMentors | async"
+              [value]="mentor"
+            >
+              {{ mentor }}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-error  *ngIf="mentorsCtrl.invalid && mentorsCtrl.touched">
+            Allocate Mentors field is required
+          </mat-error> -->
+        </mat-form-field>
+        <span *ngIf="mentorsCtrl.invalid && mentorsCtrl.touched && mentors.length===0" class="mentor-error">
+          This field is required
+        </span>
+      </form>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start stretch" width="200px">
+      <div class="ad-img-container">
+        <div class="on-banner-img">
+          <tt-upload-file
+          *ngIf="!data.readOnly"
+          cmpId="pr-file-upload-2"
+          container="programfiles"
+          label="Upload Banner"
+          icon="add_a_photo"
+          (uploaded)="onAdImgSelected($event)"
+        ></tt-upload-file>
+        </div>
+        <img [src]="bannerImgPath || '/assets/images/no-promo-banner.png'" />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!data.readOnly" mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button [disabled]="programFormGroup.status == 'INVALID' || mentors.length === 0" mat-button color="primary" type="submit" (click)="onSubmit(programFormGroup.value)">
+    Save
+  </button>
+</div>

@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start">
+      <div fxLayout="column" fxLayoutAlign="start stretch"  class="left-panel">
+        <div class="promo-title" fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch">
+          {{data.program.name}}
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+          <img class="promo-img" [src]="data.program.imgPath" />
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          {{data.program.description}}
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          {{data.program.text}}
+        </div>
+        <p></p>
+        <h3>Criteria</h3>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          {{data.program.criteria}}
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <h3>Starts On</h3>{{data.program.startDt | ttgenericdate: 'MM/DD/YYYY'}}
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <h3>Ends On</h3>{{data.program.endDt | ttgenericdate: 'MM/DD/YYYY'}}
+          </div>
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          <a href="{{data.program.tncLink}}" target="_blank">Terms & Conditions</a>
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="start stretch" class="right-panel">
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start">
+          <mat-toolbar *ngIf="data.readOnly">Submitted Detail</mat-toolbar>
+          <mat-toolbar *ngIf="!data.readOnly">Submit Detail</mat-toolbar>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start">
+          <tt-request-input-form #requestform [fields]="data.formMetaData.attributes" [data]="data.requestData"
+            [readOnly]="data.readOnly"></tt-request-input-form>
+        </div>
+      </div>
+</div>
+<div mat-dialog-actions *ngIf="!data.readOnly">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="confirm(requestform)">
+    Send Join Request
+  </button>
+</div>

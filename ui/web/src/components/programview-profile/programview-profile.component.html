@@ -1,0 +1,138 @@
+<!-- <h1 mat-dialog-title>{{user.firstName}} {{user.lastName}}</h1> -->
+<mat-dialog-content>
+  <mat-grid-list cols="4" rowHeight="450px">
+    <!-- col 1-->
+    <mat-grid-tile>
+      <div class="user-profile-left">
+        <!-- <img [src]="../../assets/images/imagelists/ba2.png" /> -->
+        <img [src]="userSource.imgPath" />
+        <!-- Social Media -->
+        <ng-container>
+          <tt-social-sharing
+            [repoUrl]="user.publicUrl"
+            [text]="
+              user.firstName +
+              ' ' +
+              user.lastName +
+              ' - ' +
+              user.role.description +
+              ' - ' +
+              'MaaS'
+            "
+            [imageUrl]="user.userDetail.photoUrl"
+            [dec]="user.userDetail.about"
+          ></tt-social-sharing>
+        </ng-container>
+        <!-- end social -->
+      </div>
+    </mat-grid-tile>
+    <!-- col-2 -->
+
+    <mat-grid-tile colspan="2">
+      <mat-card style="width: 425px;">
+        <div>
+          <p class="large-text orange">
+            <mat-icon>verified_user</mat-icon>&nbsp;
+            {{ userSource.name | tttextlengthlargeellipsis }}
+          </p>
+          <p class="label">{{ userSource.description }}</p>
+          <mat-divider></mat-divider>
+
+          <div class="userdata" *ngIf="userSource.enrolByDt">
+            <div fxLayoutGap="20px" fxLayoutAlign="start center">
+              <mat-icon class="iconslist">today</mat-icon>
+              <div class="fill-half">
+                <label>Enrol By Date :</label>
+              </div>
+              <div class="fill-half">
+                <label>{{ userSource.enrolByDt | date: "MM/dd/yyyy" }}</label>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="userdata" *ngIf="userSource.startDt">
+            <div fxLayoutGap="20px" fxLayoutAlign="start center">
+              <mat-icon class="iconslist">today</mat-icon>
+              <div class="fill-half">
+                <label>Start Date :</label>
+              </div>
+              <div class="fill-half">
+                <label>{{ userSource.startDt | date: "MM/dd/yyyy" }}</label>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="userdata" *ngIf="userSource.endDt">
+            <div fxLayoutGap="20px" fxLayoutAlign="start center">
+              <mat-icon class="iconslist">today</mat-icon>
+              <div class="fill-half">
+                <label>End Date :</label>
+              </div>
+              <div class="fill-half">
+                <label>{{ userSource.endDt | date: "MM/dd/yyyy" }}</label>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="userdata" *ngIf="userSource.text">
+            <div fxLayoutGap="20px" fxLayoutAlign="start center">
+              <mat-icon class="iconslist">note</mat-icon>
+              <div class="fill-half">
+                <label>Promotion Text :</label>
+              </div>
+              <div class="fill-half">
+                <label>{{ userSource.text }}</label>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="userdata" *ngIf="userSource.criteria">
+            <div fxLayoutGap="20px" fxLayoutAlign="start center">
+              <mat-icon class="iconslist">local_library </mat-icon>
+              <div class="fill-half">
+                <label>Participation Criteria :</label>
+              </div>
+              <div class="fill-half">
+                <label>{{ userSource.criteria }}</label>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <p *ngIf="userSource.tncLink">
+            <mat-icon class="iconslist">art_track</mat-icon>
+            <button
+              mat-button
+              color="primary"
+              routerLink="{{ userSource.tncLink }}"
+              style="margin-top: -10px;"
+            >
+              {{ userSource.tncLink }}
+            </button>
+            <mat-divider></mat-divider>
+          </p>
+
+          <!-- <p *ngIf="userSource.publicUrl">
+          <mat-icon class="iconslist">screen_share</mat-icon>
+          <button mat-button color="primary" routerLink="{{ userSource.publicUrl }}">
+            {{ userSource.publicUrl }}
+          </button>
+        </p> -->
+          <!-- <p><span>Address: </span><span class="light">{{user.userDetail.ethAddress}}</span></p> -->
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- col-3 -->
+    <mat-grid-tile>
+      <div class="user-profile-left1">
+        <!-- <img src="../../assets/images/imagelists/CSR2.png" alt="banner" /> -->
+        <img [src]="userSource.bannerImgPath" />
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>

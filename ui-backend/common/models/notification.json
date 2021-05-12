@@ -1,0 +1,50 @@
+{
+  "name": "Notification",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "message": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "fnType": {
+      "type": "string",
+      "required": false
+    },
+    "fnData": {
+      "type": "string",
+      "required": false
+    },
+    "status": {
+      "type": "string",
+      "required": false
+    },
+    "statusMsg": {
+      "type": "object",
+      "required": false
+    },
+    "isRead": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "toUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "fromUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,17 @@
+{
+  "name": "TTRole",
+  "base": "Role",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "Audit": {},
+    "Count": {}
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

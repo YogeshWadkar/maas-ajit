@@ -1,0 +1,78 @@
+{
+  "name": "Task",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "dueDt": {
+      "type": "date",
+      "required": true
+    },
+    "remark": {
+      "type": "string",
+      "required": false
+    },
+    "comment": {
+      "type": "string",
+      "required": false
+    },
+    "hasChatLog": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "taskDoc": {
+      "type": "string",
+      "required": false
+    },
+    "taskCompletionDoc": {
+      "type": "string",
+      "required": false
+    },
+    "hasTokenAllocated": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "assignedToUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "assignedByUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "meeting": {
+      "type": "belongsTo",
+      "model": "Meeting",
+      "foreignKey": ""
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "TaskCategory",
+      "foreignKey": ""
+    },
+    "status": {
+      "type": "belongsTo",
+      "model": "TaskStatus",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

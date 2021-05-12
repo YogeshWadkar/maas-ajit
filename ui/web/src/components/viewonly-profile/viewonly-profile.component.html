@@ -1,0 +1,139 @@
+<!-- <h1 mat-dialog-title>{{user.firstName}} {{user.lastName}}</h1> -->
+<mat-dialog-content>
+  <mat-grid-list cols="3" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="user-profile-left">
+        <img [src]="user.userDetail.photoUrl" />
+        <p></p>
+
+        <!-- <tt-star-rating [rating]="user.userDetail.avgRating"></tt-star-rating> -->
+
+        <!-- Social Media -->
+
+        <ng-container *ngIf="userdata1 != 'admin' && userrole == user['role']['name']">
+          <tt-social-sharing [repoUrl]="user.publicUrl" [text]="user.firstName + ' ' + user.lastName + ' - ' + user.role.description + ' - ' + 'MaaS'" [imageUrl]="getImgUrl(user.userDetail.photoUrl)" [dec]="user.userDetail.about"></tt-social-sharing>
+        </ng-container>
+        <!-- end social -->
+
+        <p>
+        <tt-star-rating 
+        *ngIf="
+          user['role']['name'] != 'sponsor' && user['role']['name'] != 'admin'
+        "
+        [rating]="user.userDetail.avgRating"></tt-star-rating>
+        <p *ngIf="
+        user['role']['name'] != 'sponsor' && user['role']['name'] != 'admin' ">
+          <span *ngIf="user.userDetail.about" class="label"
+            >Professional Bio:</span
+          >
+          {{ user.userDetail.about }}
+        </p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <div>
+        <p class="large-text orange">
+          {{ user.firstName + " " + user.lastName | tttextlengthlargeellipsis }}
+        </p>
+        <p class="label">{{ user.role.description }}</p>
+        <div *ngIf="location.length > 0">
+          <mat-icon class="icon">room</mat-icon>
+          <span>{{ location }}</span>
+        </div>
+        <!-- <p style="clear: both;"></p> -->
+        <p></p>
+        <!-- <p><span>Address: </span><span class="light">{{user.userDetail.ethAddress}}</span></p> -->
+        <div
+          *ngIf="user.company"
+          fxLayout="row"
+          fxLayoutGap="40px"
+          fxLayoutAlign="start center"
+        >
+          <div>
+            <mat-icon class="icon">bookmark</mat-icon>
+            <span>Sponsored By: {{ user.company.name }}</span>
+          </div>
+          <!-- <div>
+                    <mat-icon class="icon">email</mat-icon>
+                    <span>{{user.email}}</span>
+                </div>
+                
+                <div>
+                    <mat-icon class="icon">phone</mat-icon>
+                    <span>{{user.mobileNo}}</span>
+                </div> -->
+        </div>
+
+        <br />
+        <div *ngIf="
+        user['role']['name'] != 'sponsor' && user['role']['name'] != 'admin'
+      " class="user-stats">
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.peopleMentored || 0 }}</p>
+              <p class="user-stat-param">Mentored</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ skillsData.length }}</p>
+              <p class="user-stat-param">Skills</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.userDetail.totalVotes }}</p>
+              <p class="user-stat-param">Rated</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.userDetail.tokenBalance || 0 }}</p>
+              <p class="user-stat-param">Tokens</p>
+            </mat-card>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list *ngIf="user['role']['name'] != 'sponsor' && user['role']['name'] != 'admin'" cols="2" rowHeight="600px">
+    <mat-grid-tile colspan="2">
+      <mat-tab-group>
+        <mat-tab label="Skills">
+          <tt-dynamic-table
+            [totalCount]="skillsData.length"
+            [data]="skillsData"
+            [columns]="skillsColumns"
+            [pagination]="false"
+          ></tt-dynamic-table>
+        </mat-tab>
+        <mat-tab label="Education">
+          <tt-dynamic-table
+            [totalCount]="educationData.length"
+            [data]="educationData"
+            [columns]="educationColumns"
+            [pagination]="false"
+          ></tt-dynamic-table>
+        </mat-tab>
+        <mat-tab label="Work Experience">
+          <tt-dynamic-table
+            [totalCount]="workexpData.length"
+            [data]="workexpData"
+            [columns]="workexpColumns"
+            [pagination]="false"
+          ></tt-dynamic-table>
+        </mat-tab>
+        <mat-tab label="Certificates">
+          <tt-dynamic-table
+            [totalCount]="certificationData.length"
+            [data]="certificationData"
+            [columns]="certificationColumns"
+            [pagination]="false"
+          ></tt-dynamic-table>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>

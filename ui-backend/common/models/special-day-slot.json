@@ -1,0 +1,37 @@
+{
+  "name": "SpecialDaySlot",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "fromTm": {
+      "type": "date",
+      "required": true
+    },
+    "toTm": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "slot": {
+      "type": "belongsTo",
+      "model": "Slot",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

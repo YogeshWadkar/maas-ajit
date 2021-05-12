@@ -1,0 +1,22 @@
+{
+  "name": "Weekday",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "seq": {
+      "type": "number",
+      "required": true
+    },
+    "iso": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

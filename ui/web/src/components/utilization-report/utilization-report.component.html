@@ -1,0 +1,46 @@
+<mat-toolbar>
+  <span>{{ title }}</span>
+  <span class="fill-remaining-space"></span>
+  <mat-form-field>
+    <mat-select [(value)]="dateRange" (selectionChange)="onSelectionChange()">
+      <mat-option value="7days">Last 7 Days</mat-option>
+      <mat-option value="2weeks">Last 2 Weeks</mat-option>
+      <mat-option value="1month">Last 1 Month</mat-option>
+      <mat-option value="6months">Last 6 Months</mat-option>
+      <mat-option value="12months">Last 12 Months</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select
+      [(value)]="selectedMentor"
+      (selectionChange)="onSelectionChange()"
+    >
+      <mat-option value="all">All</mat-option>
+      <mat-option *ngFor="let mentor of mentors" [value]="mentor.id"
+        >{{ mentor.firstName }} {{ mentor.lastName }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <span class="fill-remaining-space"></span>
+  <!-- <button mat-raised-button color="accent">
+        <mat-icon>get_app</mat-icon>
+        Download Report
+    </button> -->
+</mat-toolbar>
+
+<div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start stretch">
+  <tt-dynamic-table
+    [totalCount]="data.length"
+    [data]="data"
+    [columns]="columns[dateRange]"
+    (actionClicked)="onActionClicked($event)"
+    (actionableClicked)="onActionableClicked($event)"
+  ></tt-dynamic-table>
+  <mat-card>
+    <mat-card-title>{{ dateRangeTxt[dateRange] }}</mat-card-title>
+    <mat-card-subtitle>Hours available vs. spent</mat-card-subtitle>
+    <mat-card-content>
+      <canvas id="availabilityVsAllocationChartReport"></canvas>
+    </mat-card-content>
+  </mat-card>
+</div>

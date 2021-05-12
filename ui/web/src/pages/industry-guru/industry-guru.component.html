@@ -1,0 +1,97 @@
+<tt-header></tt-header>
+<mat-toolbar color="primary" class="menubar">
+  <button routerLink="/mentor" mat-button>
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+
+  <button mat-button routerLink="/mentor/self-assessment">
+    <mat-icon>badge</mat-icon>
+    Skill Rating
+  </button>
+  <!-- <button mat-button [matMenuTriggerFor]="skillsRatingMenu">
+            <mat-icon>badge</mat-icon>
+            Skill Rating
+        </button>
+        <mat-menu #skillsRatingMenu="matMenu">
+            <button routerLink="/mentor/self-rating" mat-menu-item>Self Rating</button>
+            <button routerLink="/mentor/assess-seeker" mat-menu-item>Mentee Assessment</button>
+        </mat-menu> -->
+
+          
+  <button mat-button routerLink="/mentor/assessment-requests">
+    <mat-icon>playlist_add_check</mat-icon>
+    Assessment Requests
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="meetingsMenu">
+    <mat-icon>group</mat-icon>
+    Meeting
+  </button>
+  <mat-menu #meetingsMenu="matMenu">
+    <button routerLink="/mentor/review-meetings" mat-menu-item>
+      Approve/Reject Meetings
+    </button>
+    <button routerLink="/mentor/upcoming-meetings" mat-menu-item>
+      Upcoming Meetings
+    </button>
+    <button routerLink="/mentor/completed-meetings" mat-menu-item>
+      Completed Meetings
+    </button>
+    <button routerLink="/mentor/expired-meetings" mat-menu-item>
+      Expired Meetings
+    </button>
+  </mat-menu>
+
+  <button mat-button routerLink="/mentor/actions-tracker">
+    <mat-icon>assignment_turned_in</mat-icon>
+    Actions Tracker
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="calendarMenu">
+    <mat-icon>calendar_today</mat-icon>
+    Calendar
+  </button>
+  <mat-menu #calendarMenu="matMenu">
+    <button routerLink="/mentor/available-weekday-slots" mat-menu-item>
+      Available Weekday Slots
+    </button>
+    <button routerLink="/mentor/holidays-leaves" mat-menu-item>
+      My Holidays/Leaves
+    </button>
+    <button routerLink="/mentor/special-day-slots" mat-menu-item>
+      Special Day Slots
+    </button>
+    <button routerLink="/mentor/published-slots" mat-menu-item>
+      Published Slots
+    </button>
+  </mat-menu>
+
+  <button mat-button routerLink="/mentor/referral-details">
+    <mat-icon>loyalty</mat-icon>
+    Referral Detail
+  </button>
+
+  <button mat-button routerLink="/mentor/program-requests">
+    <mat-icon>local_florist</mat-icon>
+    Programs
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="settingsMenu">
+    <mat-icon>settings</mat-icon>
+    Settings
+  </button>
+  <mat-menu #settingsMenu="matMenu">
+    <button routerLink="/mentor/setting-freebusy" mat-menu-item>
+      Connect FreeBusy
+    </button>
+  </mat-menu>
+
+
+  <!-- <button routerLink="/mentor/help" mat-button>
+            <mat-icon>help</mat-icon>
+            Help
+        </button> -->
+</mat-toolbar>
+
+<ng-template></ng-template>

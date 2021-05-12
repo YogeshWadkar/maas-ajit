@@ -1,0 +1,9 @@
+{
+  "name": "UserSkill",
+  "base": "TTBasePersistedModel",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

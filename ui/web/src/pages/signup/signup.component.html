@@ -1,0 +1,262 @@
+<mat-grid-list cols="2" rowHeight="100%">
+  <mat-grid-tile class="left-panel">
+    <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+      <div
+        class="large-text"
+        fxLayout="row"
+        fxLayoutGap="40px"
+        fxLayoutAlign="center stretch"
+      >
+        MaaS
+      </div>
+      <div
+        class="medium-text"
+        fxLayout="row"
+        fxLayoutGap="40px"
+        fxLayoutAlign="center stretch"
+      >
+        Enabling Relevance in Career
+      </div>
+      <p></p>
+      <p></p>
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+        <div>
+          <img src="../../assets/images/icon-career-seeker.png" />
+          <p class="center-text">Career Seeker</p>
+        </div>
+        <div>
+          <img src="../../assets/images/icon-industry-guru.png" />
+          <p class="center-text">Career Mentor</p>
+        </div>
+        <div>
+          <img src="../../assets/images/icon-talent-specialist.png" />
+          <p class="center-text">Talent Specialist</p>
+        </div>
+        <div>
+          <img src="../../assets/images/icon-business-leader.png" />
+          <p class="center-text">Business Leader</p>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <form
+      *ngIf="!hasSignedup"
+      (ngSubmit)="onSubmit(signupFormGroup.value)"
+      [formGroup]="signupFormGroup"
+    >
+      <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+        <div
+          class="heading-text orange-text"
+          fxLayout="row"
+          fxLayoutGap="40px"
+          fxLayoutAlign="center stretch"
+        >
+          Get your account now
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="First Name"
+              required
+              formControlName="firstName"
+            />
+            <mat-error
+              *ngIf="signupFormGroup.get('firstName').hasError('required')"
+            >
+              First name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Last Name"
+              required
+              formControlName="lastName"
+            />
+            <mat-error
+              *ngIf="signupFormGroup.get('lastName').hasError('required')"
+            >
+              Last name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              placeholder="Email Address"
+              required
+              email
+              formControlName="email"
+            />
+            <mat-error
+              *ngIf="signupFormGroup.get('email').hasError('required')"
+            >
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="signupFormGroup.get('email').hasError('email')">
+              Invalid Email (try e.g. abc@xyz.com)
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Mobile No"
+              required
+              minlength="10"
+              pattern="^[(]{0,1}[+0-9]{1,4}[)]{0,1}[0-9]{10}$"
+              formControlName="mobileNo"
+            />
+            <mat-error
+              *ngIf="signupFormGroup.get('mobileNo').hasError('required')"
+            >
+              Mobile no. is required
+            </mat-error>
+            <mat-error
+              *ngIf="
+                signupFormGroup.get('mobileNo').hasError('pattern') ||
+                signupFormGroup.get('mobileNo').hasError('minlength')
+              "
+            >
+              Invalid number (try e.g. (+91)1234567890)
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              required
+              minlength="8"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <mat-error
+              *ngIf="signupFormGroup.get('password').hasError('required')"
+            >
+              Password is required
+            </mat-error>
+            <mat-error
+              *ngIf="signupFormGroup.get('password').hasError('minlength')"
+            >
+              Password must be at least 8 characters long
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              required
+              minlength="8"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+            />
+            <mat-error
+              *ngIf="
+                signupFormGroup.get('confirmPassword').hasError('required')
+              "
+            >
+              Password is required
+            </mat-error>
+            <mat-error
+              *ngIf="signupFormGroup.get('confirmPassword').hasError('minlength')"
+            >
+              Password must be at least 8 characters long
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <mat-form-field class="stretch-2-col">
+            <mat-label>Sign Up As</mat-label>
+            <mat-select matNativeControl required formControlName="signupAs">
+              <mat-option *ngIf="!adminInvitee" value="career-seeker">Career Seeker</mat-option>
+              <mat-option value="mentor">Mentor</mat-option>
+              <!-- <mat-option value="talent-specialist">Talent Specialist</mat-option>
+                                <mat-option value="business-leader">Business Leader</mat-option> -->
+            </mat-select>
+            <mat-error
+              *ngIf="signupFormGroup.get('signupAs').hasError('required')"
+            >
+              You must choose a role
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch">
+          <mat-form-field class="stretch-2-col">
+            <input
+              matInput
+              placeholder="Referral Code"
+              formControlName="referralCode"
+              (input)="validateCode($event.target.value)"
+            />
+            <mat-hint
+              >Enter a referral code if you have received one as part of an
+              invitation</mat-hint
+            >
+            <mat-icon
+              *ngIf="isCodeValidated"
+              matSuffix
+              [matTooltip]="validationMsg[isCodeValid ? 1 : 0]"
+              [class.code-valid]="isCodeValid"
+              [class.code-invalid]="!isCodeValid"
+              >info</mat-icon
+            >
+          </mat-form-field>
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <mat-checkbox color="primary" required formControlName="iAccept"
+            >I accept Terms & Conditions</mat-checkbox
+          >
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <button
+            mat-raised-button
+            class="full-width"
+            color="primary"
+            type="submit"
+            [disabled]="signupFormGroup.status == 'INVALID'"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <p>
+            Already have account? <a href="" routerLink="/signin">Sign In</a>
+          </p>
+        </div>
+      </div>
+    </form>
+    <div
+      *ngIf="hasSignedup"
+      fxLayout="column"
+      fxLayoutAlign="center stretch"
+      class="row signup-success"
+    >
+      <div
+        class="heading-text orange-text"
+        fxLayout="row"
+        fxLayoutGap="40px"
+        fxLayoutAlign="center stretch"
+      >
+        Thank you for signing up!
+      </div>
+      <p></p>
+      <p>
+        A confirmation email has been sent to your email address
+        <span class="orange-text">{{ usedEmail }}</span
+        >. Please follow the instructions to complete your account activation.
+      </p>
+
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+        <p>Already activated? <a href="" routerLink="/signin">Sign In</a></p>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

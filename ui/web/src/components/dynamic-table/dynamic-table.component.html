@@ -1,0 +1,143 @@
+<div>
+  <div class="no-data" *ngIf="length == 0">
+    <img src="../../assets/images/no-data.png" />
+    <span>No matching data found!</span>
+  </div>
+
+  <mat-table *ngIf="length > 0" #table [dataSource]="dataSource" matSort>
+    <ng-container
+      *ngFor="let column of columns; let i = index"
+      matColumnDef="{{ column.name }}"
+    >
+      <!-- <ng-container *ngIf="column.name =='checked'">
+                <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                    </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </mat-cell>
+            </ng-container> -->
+      <ng-container *ngIf="column.name != 'actions'">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ column.displayName }}
+        </mat-header-cell>
+        <ng-container *ngIf="column.type == 'iconlink'">
+          <mat-cell *matCellDef="let element">
+            <a
+              *ngIf="element[column.name].value"
+              [href]="element[column.name]['value']"
+              target="_blank"
+            >
+              <mat-icon [matTooltip]="element[column.name].tip">{{
+                element[column.name]["icon"]
+              }}</mat-icon>
+            </a>
+            <mat-icon
+              class="clickable"
+              *ngIf="!element[column.name].value"
+              color="primary"
+              [matTooltip]="element[column.name].tip"
+              (click)="onActionClick({ name: column.name }, element, idx)"
+              >{{ element[column.name]["icon"] }}</mat-icon
+            >
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="column.type == 'image'">
+          <mat-cell *matCellDef="let element">
+            <img
+              [src]="
+                getDataValue(column, element, column.dataField || column.name)
+              "
+            />
+          </mat-cell>
+        </ng-container>
+        <ng-container
+          *ngIf="column.type == 'widget'"
+          [ngSwitch]="column.widget.type"
+        >
+          <mat-cell *matCellDef="let element">
+            <tt-star-rating
+              *ngSwitchCase="'rating'"
+              [rating]="element[column.name]"
+            ></tt-star-rating>
+            <tt-progress-bar
+              *ngSwitchCase="'progress'"
+              [progress]="element[column.name]"
+            ></tt-progress-bar>
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="!column.actionable">
+          <mat-cell *matCellDef="let element">
+            {{ getDataValue(column, element, column.dataField || column.name) }}
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="column.actionable">
+          <mat-cell *matCellDef="let element; let idx = index">
+            <button
+              *ngIf="column.actionableName"
+              mat-button
+              color="primary"
+              [matTooltip]="column.tip"
+              (click)="onActionableClick(column.name, element, idx)"
+            >
+              {{ column.actionableName || element[column.name] }}
+            </button>
+            <button
+              *ngIf="column.actionableIcon"
+              mat-icon-button
+              color="primary"
+              [matTooltip]="column.tip"
+              (click)="onActionableClick(column.name, element, idx)"
+            >
+              <mat-icon>{{ column.actionableIcon }}</mat-icon>
+            </button>
+            <button
+              *ngIf="!column.actionableName && !column.actionableIcon"
+              mat-button
+              color="primary"
+              [matTooltip]="column.tip"
+              (click)="onActionableClick(column.name, element, idx)"
+            >
+              {{ getDataValue(column, element, column.name) }}
+            </button>
+          </mat-cell>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="column.name == 'actions'">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element; let j = index">
+          <button
+            mat-icon-button
+            color="primary"
+            [matTooltip]="action.tip"
+            *ngFor="let action of element[column.name]"
+            (click)="onActionClick(action, element, j)"
+          >
+            <mat-icon>{{ action.name }}</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns; let idx = index"
+      (click)="onRowClick(idx, row)"
+    >
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator
+    *ngIf="pagination && length > 0"
+    (page)="onPageChange($event)"
+    [pageSize]="pageSize"
+    [length]="length"
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

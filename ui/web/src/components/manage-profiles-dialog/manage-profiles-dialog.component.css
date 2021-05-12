@@ -1,0 +1,30 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 5px;
+  /* border-right: 1px solid rgb(245, 245, 245);
+    border-left: 1px solid rgb(245, 245, 245); */
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.skill-input .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+.skill-error {
+  display: block;
+  color: #f44336;
+  font-size: 75%;
+  font-weight: 400;
+  height: 13px;
+  line-height: 1.125em;
+  text-align: left;
+  width: 300px;
+  -webkit-box-direction: normal;
+  margin-top: 0.6666666667em;
+  top: calc(100% - 1.7916666667em);
+}

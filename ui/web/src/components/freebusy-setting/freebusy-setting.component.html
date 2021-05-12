@@ -1,0 +1,14 @@
+<div class="setting-fb">
+    <form (ngSubmit)="save()" [formGroup]="formGroup">
+        <div class="container">
+            <mat-form-field>
+                <input matInput required="true" placeholder="FreeBusy Email" formControlName="email" />
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        <!-- <button *ngIf="record.email && record.email.length > 0" mat-button color="accent">Test</button> -->
+    </form>
+    <h1 class="heading">How others will see?</h1>
+    <div id="freebusy-pickatime-button" (click)="openFreeBusy($event)"></div>
+    <div id="how-others-will-see"></div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "ZoomEventLog",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "zoomMeetingUUID": {
+      "type": "string",
+      "required": false
+    },
+    "eventType": {
+      "type": "string",
+      "required": false
+    },
+    "eventDtm": {
+      "type": "date",
+      "required": false
+    },
+    "payload": {
+      "type": "object",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "meeting": {
+      "type": "belongsTo",
+      "model": "Meeting",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

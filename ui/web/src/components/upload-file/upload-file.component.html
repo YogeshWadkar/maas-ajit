@@ -1,0 +1,16 @@
+<div class="file-upload-wrapper">
+  <span class="fill-remaining-space"></span>
+  <input
+    class="ng-hide"
+    [id]="cmpId"
+    type="file"
+    ng2FileSelect
+    [uploader]="uploader"
+    (onFileSelected)="onFileSelected($event)"
+  />
+  <label [for]="cmpId" class="mat-button mat-raised-button mat-secondary">
+    <mat-icon class="fileicon">{{ icon }}</mat-icon>
+    {{ label }}
+  </label>
+  <span class="fill-remaining-space"></span>
+</div>

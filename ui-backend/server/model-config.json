@@ -1,0 +1,268 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "TTRole": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TTUser": {
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "TTUserDetail": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AccessLog": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Faq": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Leave": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Meeting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProfileCategory": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SelfAssessment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Setting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SkillCategory": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SlotsAllowed": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SpecialDaySlot": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SystemAssessment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Skill": {
+    "dataSource": "db",
+    "public": true
+  },
+  "UserSkill": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "mail"
+  },
+  "MeetingStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Weekday": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Country": {
+    "dataSource": "db",
+    "public": true
+  },
+  "State": {
+    "dataSource": "db",
+    "public": true
+  },
+  "City": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Rating": {
+    "dataSource": "db",
+    "public": true
+  },
+  "NFTToken": {
+    "dataSource": null,
+    "public": true
+  },
+  "TokenTransferLog": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Attachment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "FileAttachment": {
+    "dataSource": "container"
+  },
+  "TaskCategory": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TaskStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Education": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Certification": {
+    "dataSource": "db",
+    "public": true
+  },
+  "WorkExperience": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ImportLog": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ZoomMeeting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ZoomEventLog": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Company": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Dashboard": {
+    "dataSource": null,
+    "public": true
+  },
+  "Notification": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Slot": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ReferralCode": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Chat": {
+    "dataSource": "db",
+    "public": true
+  },
+  "FormStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Form": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProgramStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Program": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProgramEnrolmentStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProgramEnrolment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProgramMentor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ProgramMetric": {
+    "dataSource": "db",
+    "public": true
+  },
+  "FreeBusy": {
+    "dataSource": "db",
+    "public": true
+  },
+  "CareerProfile": {
+    "dataSource": "db",
+    "public": true
+  },
+  "CareerProfileStatus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "CareerProfileSkill": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AssessmentRequest": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AssessmentLevel": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AssessmentStatus": {
+    "dataSource": "db",
+    "public": true
+  }
+}

@@ -1,0 +1,29 @@
+<mat-dialog-content>
+  <div class="profile-area">
+    <div class="profile-img">
+      <img class="profile-icon" [src]="cProfileDetail.iconUrl" />
+    </div>
+    <div class="profile-detail">
+      <h1 mat-dialog-title class="title-text">{{ cProfileDetail.name }}</h1>
+      <div class="text-colr"><span class="large-title for-title"> Also called as </span>
+        <span class="span-cls"> {{ cProfileDetail.altName }}</span> 
+      </div>
+      <div class="profile-desc">
+          {{ cProfileDetail.description }}
+      </div>
+    </div>
+  </div>
+  
+
+  <mat-grid-list cols="4" rowHeight="200px">
+    <mat-grid-tile *ngFor="let skill of cProfileDetail.skills">
+      <mat-card>
+        <img class="skill-icon" [src]="skill.iconUrl" />
+
+        <mat-card-content>
+          <p class="skill-name">{{skill.name}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>

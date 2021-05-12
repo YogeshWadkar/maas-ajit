@@ -1,0 +1,9 @@
+{
+  "name": "ProfileCategory",
+  "base": "TTBasePersistedModel",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

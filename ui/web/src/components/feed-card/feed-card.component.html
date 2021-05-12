@@ -1,0 +1,28 @@
+<mat-card class="card-feed-entry">
+  <mat-card-title>Articles</mat-card-title>
+  <mat-card-subtitle>Feeds from Medium</mat-card-subtitle>
+  <mat-card-content>
+    <div *ngIf="!feeds.length" class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+    <div *ngFor="let feed of feeds; let i = index" style="padding:12px;">
+      <div style="float:left;">
+        <img [src]="feed.thumbnail" height="50px;" style="overflow:hidden;" />
+      </div>
+      <div style="margin-left:96px;">
+        <a class="cursor" (click)="openLinkInBrowser(feed.link)">{{
+          feed.title
+        }}</a>
+        <p>{{ feed.author }} - {{ feed.pubDate | ttdateago }}</p>
+        <!-- <p>{{feed.description}}</p> -->
+      </div>
+      <div class="loader-container" *ngIf="!feeds.length">
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

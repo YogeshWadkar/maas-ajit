@@ -1,0 +1,144 @@
+{
+  "name": "TTUser",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Audit": {},
+    "Count": {}
+  },
+  "properties": {
+    "mobileNo": {
+      "type": "string",
+      "required": true
+    },
+    "iAccept": {
+      "type": "boolean",
+      "required": true
+    },
+    "signupAs": {
+      "type": "string",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "hidden": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "referralCode": {
+      "type": "string",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "publicUrl": {
+      "type": "string",
+      "required": false
+    },
+    "source": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "role": {
+      "type": "belongsTo",
+      "model": "TTRole",
+      "foreignKey": ""
+    },
+    "userDetail": {
+      "type": "hasOne",
+      "model": "TTUserDetail",
+      "foreignKey": "userId",
+      "primaryKey": "id"
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": ""
+    },
+    "skills": {
+      "type": "hasMany",
+      "model": "SelfAssessment",
+      "foreignKey": "userId",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "bySkills"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "byLocation"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "import"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "invite"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "validateReferralCode"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "signUpVisited"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getPublicProfileDetail"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "addSponsor"
+    }
+  ],
+  "methods": {}
+}

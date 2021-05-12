@@ -1,0 +1,152 @@
+<div
+  [ngClass]="{ chat: true, minimized: isMinimized, highlight: ctx.highlight }"
+>
+  <div class="chat-header" (click)="minOrMaximize()">
+    <span>{{ ctx.ctxName }}</span>
+    <mat-icon
+      class="chat-header-tool"
+      matTooltip="Close chat dialog"
+      (click)="onClose()"
+      >close</mat-icon
+    >
+    <mat-icon
+      *ngIf="!isMinimized"
+      class="chat-header-tool"
+      matTooltip="Minimize"
+      (click)="minimize()"
+      >minimize
+    </mat-icon>
+    <mat-icon
+      *ngIf="isMinimized"
+      class="chat-header-tool"
+      matTooltip="Restore"
+      (click)="maximize()"
+      >maximize
+    </mat-icon>
+  </div>
+  <div class="contents">
+    <div
+      #chathistory
+      [ngClass]="{ 'chat-history': true, minimized: isMinimized }"
+    >
+      <div
+        *ngFor="let item of chatLog"
+        [ngClass]="{ 'log-container': true, ltr: item.name == 'You' }"
+      >
+        <div class="user-img">
+          <img class="user-avatar" [src]="item.avatar" />
+        </div>
+        <div *ngIf="item.type == 'text'" class="chat-log-text">
+          {{ item.value }}
+        </div>
+        <div *ngIf="item.type == 'image'" class="chat-log-img">
+          <a [href]="item.value" target="_blank">
+            <img [src]="item.value" />
+          </a>
+        </div>
+        <!-- <div class="callout-ct">
+                    <div class="callout"></div>
+                </div> -->
+        <div class="log-stats">
+          <span>{{ item.name }}</span
+          ><span class="separator"> • </span><span>{{ item.time }}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="readOnly" class="message">
+      This chat has been disabled as the {{ ctx.ctx }} has already been
+      completed!
+    </div>
+    <div *ngIf="!isMinimized" class="send-area">
+      <ng-container *ngIf="userrole == 'career-seeker' || userrole == 'mentor'">
+        <mat-form-field
+          class="chat-input"
+          floatLabel="false"
+          appearance="outline"
+        >
+          <textarea
+            class="text-input"
+            [disabled]="readOnly"
+            #chatinput
+            matInput
+            placeholder="Send a message"
+            (keyup.enter)="onEnter(chatinput, chathistory)"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            [(ngModel)]="chatInputValue"
+          ></textarea>
+          <div
+            class="on-img"
+            matSuffix
+            *ngIf="
+              !chatInputValue || chatInputValue == null || chatInputValue == ''
+            "
+          >
+            <input
+              [disabled]="readOnly"
+              class="ng-hide"
+              id="input-file-id"
+              type="file"
+              ng2FileSelect
+              [uploader]="uploader"
+              (onFileSelected)="onFileSelected()"
+            />
+            <label for="input-file-id">
+              <mat-icon
+                matTooltip="Only images are accepted"
+                matTooltipPosition="above"
+                >image</mat-icon
+              >
+            </label>
+          </div>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="userrole === 'admin'">
+        <mat-form-field
+          class="chat-input"
+          floatLabel="false"
+          appearance="outline"
+        >
+          <textarea
+            class="text-input"
+            [disabled]="true"
+            #chatinput
+            matInput
+            placeholder="Send a message"
+            (keyup.enter)="onEnter(chatinput, chathistory)"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            [(ngModel)]="chatInputValue"
+          ></textarea>
+          <div
+            class="on-img"
+            matSuffix
+            *ngIf="
+              !chatInputValue || chatInputValue == null || chatInputValue == ''
+            "
+          >
+            <input
+              [disabled]="true"
+              class="ng-hide"
+              id="input-file-id"
+              type="file"
+              ng2FileSelect
+              [uploader]="uploader"
+              (onFileSelected)="onFileSelected()"
+            />
+            <label for="input-file-id">
+              <mat-icon
+                matTooltip="Only images are accepted"
+                matTooltipPosition="above"
+                >image</mat-icon
+              >
+            </label>
+          </div>
+        </mat-form-field>
+      </ng-container>
+    </div>
+  </div>
+</div>

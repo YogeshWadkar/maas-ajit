@@ -1,0 +1,36 @@
+{
+  "name": "Education",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "course": {
+      "type": "string",
+      "required": true
+    },
+    "specialisation": {
+      "type": "string",
+      "required": true
+    },
+    "board": {
+      "type": "string",
+      "required": true
+    },
+    "fromDt": {
+      "type": "date",
+      "required": true
+    },
+    "toDt": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

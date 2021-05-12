@@ -1,0 +1,121 @@
+<head>
+  <style>
+        body  {
+      font-family: "Roboto", arial, sans-serif;
+      color: #9b9b9b;
+    }
+
+        p  {
+      font-size: 16px;
+    }
+
+        a  {
+      color: #9b9b9b;
+    }
+
+        a.hover  {
+      color: #f06b4e;
+    }
+
+        .center  {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+    }
+        .heading  {
+      font-size: 2em;
+      font-weight: bold;
+      color: #414040;
+    }
+             .button a {
+      border: #f06b4e;
+      background-color: #f06b4e;
+      width: 240px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+
+      border-radius: 5px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      padding: 0.5em;
+      text-decoration: none;
+      text-align: center;
+    }
+
+        .wrapper  {
+      background-color: #fbe9e7;
+      height: 100%;
+      width: 100%;
+    }
+
+        .container  {
+      background-color: #fafafa;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+      padding: 24px;
+    }
+
+        .center-text  {
+      text-align: center;
+    }
+
+        .small  {
+      font-size: 0.8em;
+    }
+
+        .code  {
+      font-size: 2em;
+      font-weight: 200;
+      color: #f06b4e;
+    }
+  </style>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<html>
+  <body>
+    <div class="wrapper">
+      <!-- <img class="center" src="http://localhost:4200/assets/images/imagelists/Artboard_22.png"> -->
+      <img
+        class="center"
+        src="<%= externalUrl %>/assets/images/imagelists/Artboard_22.png"
+      />
+
+      <div class="container">
+        <h2 class="heading">Hurray! Your referral has joined!</h2>
+
+        <p>Hi <%= invitedByUserFirstName %></p>
+
+        <p>
+          <%= inviteeUserName %> has joined MaaS based on your referral. We sincerely appreciate your effort in building a stronger community to promote innovation.
+        </p>
+
+        <p>
+          As a token of appreciation, we have transferred <%= numTokens %> tokens to your wallet.
+        </p>
+        <p>
+          If you have any question related to this email please contact us at
+          <a href="mailto:support@maas.com">support@maas.com</a>
+        </p>
+
+        <br />
+        <p><%= supportUserName %></p>
+        <p>MaaS Support Team</p>
+      </div>
+      <p class="small center-text">
+        This is an automated message. Please do not reply.
+      </p>
+      <p class="small center-text">
+        Copyright&copy; TalTech Outreach Services Pvt. Ltd.
+      </p>
+    </div>
+  </body>
+</html>

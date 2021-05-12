@@ -1,0 +1,70 @@
+{
+    "name": "AssessmentRequest",
+    "base": "TTBasePersistedModel",
+    "properties": {
+        "requestId": {
+            "type": "string",
+            "required": false
+        },
+        "note": {
+            "type": "string",
+            "required": true
+        },
+        "rejectReason": {
+            "type": "string",
+            "required": false
+        },
+        "statusChangedOn": {
+            "type": "date",
+            "required": false
+        },
+        "recommendation": {
+            "type": "string",
+            "required": false
+        },
+        "rating": {
+            "type": "number",
+            "required": true,
+            "default": 0
+        },
+        "hasRecommendedForNextLevel": {
+            "type": "boolean",
+            "required": false
+        }
+    },
+    "validations": [],
+    "relations": {
+        "mentorUser": {
+            "type": "belongsTo",
+            "model": "TTUser",
+            "foreignKey": ""
+        },
+        "seekerUser": {
+            "type": "belongsTo",
+            "model": "TTUser",
+            "foreignKey": ""
+        },
+        "level": {
+            "type": "belongsTo",
+            "model": "AssessmentLevel",
+            "foreignKey": ""
+        },
+        "selfAssessment": {
+            "type": "belongsTo",
+            "model": "SelfAssessment",
+            "foreignKey": ""
+        },
+        "meeting": {
+            "type": "belongsTo",
+            "model": "Meeting",
+            "foreignKey": ""
+        },
+        "status": {
+            "type": "belongsTo",
+            "model": "AssessmentStatus",
+            "foreignKey": ""
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

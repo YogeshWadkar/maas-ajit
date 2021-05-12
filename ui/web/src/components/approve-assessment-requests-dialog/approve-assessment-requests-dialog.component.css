@@ -1,0 +1,11 @@
+.mat-form-field:first-child {
+    margin-right: 24px;
+}
+
+.note {
+    padding: 12px;
+    border: 1px solid;
+    border-color: #fbe9e7;
+    background-color: #fbe9e7;
+    border-radius: 5px;
+  }

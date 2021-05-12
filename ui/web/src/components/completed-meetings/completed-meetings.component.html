@@ -1,0 +1,15 @@
+<div>
+  <mat-toolbar>
+    <span>{{ title }}</span>
+  </mat-toolbar>
+
+  <tt-dynamic-table
+    [data]="meetings"
+    [columns]="columns[role]"
+    [totalCount]="totalCount"
+    (pageChanged)="onPageChanged($event)"
+    (actionClicked)="onActionClicked($event)"
+    (actionableClicked)="onActionableClicked($event)"
+  ></tt-dynamic-table>
+
+</div>

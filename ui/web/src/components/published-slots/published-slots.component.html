@@ -1,0 +1,68 @@
+<div class="popover">
+  <mat-toolbar>
+    <span>Published Time Slots</span>
+  </mat-toolbar>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+    <div fxLayout="row" fxLayoutGap="150px">
+      <!-- mat clander -->
+      <div class="column2">
+        <div class="calendar-wrapper">
+          <mat-card>
+            <mat-calendar
+              [selected]="selectedDate"
+              (selectedChange)="onSelect($event)"
+              [minDate]="minDate"
+            ></mat-calendar>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- time duration am and pm  -->
+      <div class="column3">
+        <div class="mat-body-2 center-text">
+          Duration : {{ duration }} minutes
+        </div>
+
+        <div class="mat-body-1 center-text">
+          <mat-icon class="al">alarm_on</mat-icon> Available starting time for
+          <span class="mat-body-2"> {{ current | date: datepipe }} </span>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+          <div fxLayout="row" fxLayoutGap="260px">
+            <div class="column2">
+              <mat-list>
+                <h3 mat-subheader>AM</h3>
+                <mat-list-item
+                  *ngFor="let data of publishedSlotsAM; index as i"
+                >
+                  <button mat-stroked-button color="primary" class="timeslot">
+                    {{ data.fromTm | tttimeformat }}
+                  </button>
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div class="column2">
+              <mat-list>
+                <h3 mat-subheader>PM</h3>
+                <mat-list-item
+                  *ngFor="let data of publishedSlotsPM; index as i"
+                >
+                  <button mat-stroked-button class="timeslot" color="primary">
+                    {{ data.fromTm | tttimeformat }}
+                  </button>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </div>
+        </div>
+
+        <div class="no-data" *ngIf="publishedSlots.length == 0">
+          <img src="../../assets/images/no-data.png" />
+          <span>No matching data found!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

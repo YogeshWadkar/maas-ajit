@@ -1,0 +1,110 @@
+<tt-header></tt-header>
+<mat-toolbar color="primary" class="menubar">
+  <button routerLink="/career-seeker" mat-button>
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+
+  <!-- <button mat-button routerLink="/career-seeker/manage-profiles">
+    <mat-icon>trending_up</mat-icon>
+    Career Profiles
+  </button> -->
+
+  <button mat-button routerLink="/career-seeker/manage-profiles">
+    <mat-icon>trending_up</mat-icon>
+    Career Profiles
+  </button>
+
+  <button mat-button routerLink="/career-seeker/self-assessment">
+    <mat-icon>badge</mat-icon>
+    Skill Rating
+  </button>
+
+  <button mat-button routerLink="/career-seeker/assessment-requests">
+    <mat-icon>playlist_add_check</mat-icon>
+    Assessment Requests
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="meetingsMenu">
+    <mat-icon>group</mat-icon>
+    Meeting
+  </button>
+  <mat-menu #meetingsMenu="matMenu">
+    <button routerLink="/career-seeker/pending-meetings" mat-menu-item>
+      Pending Approval Meetings
+    </button>
+    <button routerLink="/career-seeker/upcoming-meetings" mat-menu-item>
+      Upcoming Meetings
+    </button>
+    <button routerLink="/career-seeker/completed-meetings" mat-menu-item>
+      Completed Meetings
+    </button>
+    <button routerLink="/career-seeker/expired-meetings" mat-menu-item>
+      Expired Meetings
+    </button>
+  </mat-menu>
+
+  <!-- <button mat-button [matMenuTriggerFor]="skillsAssessmentMenu">
+            <mat-icon>badge</mat-icon>
+            Skills Assessment
+        </button>
+        <mat-menu #skillsAssessmentMenu="matMenu">
+            <button routerLink="/career-seeker/self-assessment" mat-menu-item>Self Assessment</button>
+            <button routerLink="/career-seeker/system-assessment" mat-menu-item>System Assessment</button>
+            <button routerLink="/career-seeker/endorsements"  mat-menu-item>Mentor Assessment</button>
+            <button routerLink="/career-seeker/overall-assessment"  mat-menu-item>Overall Assessment</button>
+        </mat-menu> -->
+
+  <button mat-button [matMenuTriggerFor]="askGuruMenu">
+    <mat-icon>comment</mat-icon>
+    Ask Mentor
+  </button>
+  <mat-menu #askGuruMenu="matMenu">
+    <button routerLink="/career-seeker/search-mentor" mat-menu-item>
+      Search Mentor
+    </button>
+    <button routerLink="/career-seeker/upcoming-meetings" mat-menu-item>
+      Scheduled Meeting
+    </button>
+    <!-- <button routerLink="/career-seeker/actions-tracker" mat-menu-item>Actions Tracker</button> -->
+    <!-- <button routerLink="/career-seeker/endorsements"  mat-menu-item>Endorsements</button> -->
+  </mat-menu>
+
+  <button mat-button routerLink="/career-seeker/actions-tracker">
+    <mat-icon>assignment_turned_in</mat-icon>
+    Actions Tracker
+  </button>
+
+  <button mat-button routerLink="/career-seeker/referral-details">
+    <mat-icon>loyalty</mat-icon>
+    Referral Detail
+  </button>
+
+  <button mat-button routerLink="/career-seeker/program-requests">
+    <mat-icon>local_florist</mat-icon>
+    Programs
+  </button>
+
+  <!-- <button routerLink="/career-seeker/career-zone" mat-button>
+            <mat-icon>card_travel</mat-icon>
+            Career Zone
+        </button>
+
+        <button mat-button [matMenuTriggerFor]="myHistoryMenu">
+            <mat-icon>history</mat-icon>
+            My History
+        </button>
+        <mat-menu #myHistoryMenu="matMenu">
+            <button routerLink="/career-seeker/task-history" mat-menu-item>Task History</button>
+            <button routerLink="/career-seeker/assessment-history" mat-menu-item>Assessment History</button>
+            <button routerLink="/career-seeker/endorsement-history" mat-menu-item>Endorsements History</button>
+            <button routerLink="/career-seeker/careers-history" mat-menu-item>Careers History</button>
+        </mat-menu> -->
+
+  <!-- <button routerLink="/career-seeker/help" mat-button>
+            <mat-icon>help</mat-icon>
+            Help
+        </button> -->
+</mat-toolbar>
+<!-- <tt-self-assessment></tt-self-assessment> -->
+<ng-template></ng-template>

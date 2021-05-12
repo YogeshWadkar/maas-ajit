@@ -1,0 +1,17 @@
+<div>
+  <mat-toolbar>
+    <span>{{ title }}</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="accent" (click)="addSkill()">
+      <mat-icon>add</mat-icon>
+      Add
+    </button>
+  </mat-toolbar>
+  <tt-dynamic-table
+    [data]="data"
+    [columns]="columns"
+    [totalCount]="totalCount"
+    (pageChanged)="onPageChanged($event)"
+    (actionClicked)="onActionClicked($event)"
+  ></tt-dynamic-table>
+</div>

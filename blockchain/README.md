@@ -1,0 +1,1 @@
+This folder contains MaaS Blockchain code

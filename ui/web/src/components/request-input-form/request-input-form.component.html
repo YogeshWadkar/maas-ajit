@@ -1,0 +1,137 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let field of fields" class="form-row">
+        <div [ngSwitch]="field.type">
+            <mat-form-field *ngSwitchCase="'text'">
+                <input
+                    matInput
+                    [placeholder]="field.placeholder"
+                    [required]="field.required"
+                    [formControlName]="field.name"
+                    [id]="field.name"
+                    [type]="field.type"
+                />
+                <mat-error *ngIf="form.get(field.name).hasError('required')">
+                    {{ field.label }} is required
+                </mat-error>
+                <mat-error *ngIf="form.get(field.name).hasError('ValidationError')">
+                    {{ field.label }} is invalid
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field *ngSwitchCase="'email'">
+                <input
+                    matInput
+                    [placeholder]="field.placeholder"
+                    [required]="field.required"
+                    [formControlName]="field.name"
+                    [id]="field.name"
+                    [type]="field.type"
+                />
+                <mat-error *ngIf="form.get(field.name).hasError('required')">
+                    {{ field.label }} is required
+                </mat-error>
+                <mat-error *ngIf="form.get(field.name).hasError('ValidationError')">
+                    {{ field.label }} is invalid
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'phone'">
+                <input
+                    matInput
+                    [placeholder]="field.placeholder"
+                    [required]="field.required"
+                    [formControlName]="field.name"
+                    [id]="field.name"
+                    [type]="field.type"
+                />
+                <mat-error *ngIf="form.get(field.name).hasError('required')">
+                    {{ field.label }} is required
+                </mat-error>
+                <mat-error *ngIf="form.get(field.name).hasError('ValidationError')">
+                    {{ field.label }} is invalid
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'number'">
+                <input
+                    matInput
+                    [placeholder]="field.placeholder"
+                    [required]="field.required"
+                    [formControlName]="field.name"
+                    [min]="field.min"
+                    [max]="field.max"
+                    [id]="field.name"
+                    [type]="field.type"
+                />
+                <mat-error *ngIf="form.get(field.name).hasError('required')">
+                    {{ field.label }} is required
+                </mat-error>
+                <mat-error *ngIf="form.get(field.name).hasError('ValidationError')">
+                    {{ field.label }} is invalid
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'textarea'">
+                <textarea
+                    matInput
+                    [placeholder]="field.placeholder || field.label"
+                    [required]="field.required"
+                    [formControlName]="field.name"
+                    [id]="field.name"
+                    [type]="field.type"
+                ></textarea>
+                <mat-error *ngIf="form.get(field.name).hasError('required')">
+                    {{ field.label }} is required
+                </mat-error>
+                <mat-error *ngIf="form.get(field.name).hasError('ValidationError')">
+                    {{ field.label }} is invalid
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'date'">
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  [id]="field.name"
+                  [placeholder]="field.placeholder"
+                  [required]="field.required"
+                  [formControlName]="field.name"
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'autocomplete'">
+                <mat-select [placeholder]="field.placeholder" [formControlName]="field.name">
+                    <mat-option *ngFor="let opt of field.values" [value]="opt.value">{{opt.label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="f-paragraph" *ngSwitchCase="'paragraph'">{{field.placeholder}}</div>
+            
+            <div *ngSwitchCase="'checkbox'" class="f-checkbox">
+                <label class="label">{{field.label}}:</label>
+                <mat-checkbox color="primary" class="cbx-item" *ngFor="let opt of field.values" [formControlName]="field.name + '-' + opt.value">{{opt.label}}</mat-checkbox>
+            </div>
+
+            <div *ngSwitchCase="'radio'" class="f-radio">
+                <label class="label">{{field.label}}:</label>
+                <mat-radio-group [formControlName]="field.name">
+                  <mat-radio-button color="primary" class="radio-item" *ngFor="let opt of field.values" [value]="opt.value">{{opt.label}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="file-upload" *ngIf="!readOnly">
+                <tt-upload-file *ngSwitchCase="'file'" container="requestfiles" [label]="field.label" (uploaded)="handleUpload(field, $event)"></tt-upload-file>
+            </div>
+            <div class="view-file" *ngIf="readOnly">
+                <a *ngSwitchCase="'file'" [href]= "form.get(field.name).value" target = "_blank"> 
+                    <!-- <img   [src]="form.get(field.name).value" /> -->
+                    <!-- <button mat-raised-button>View attachment</button> -->
+                    View Attachment
+                 </a>
+            </div>
+        </div>
+        <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+    </div>
+</form>

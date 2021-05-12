@@ -1,0 +1,117 @@
+{
+    "name": "Program",
+    "base": "TTBasePersistedModel",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "required": true
+      },
+      "enrolByDt": {
+        "type": "date",
+        "required": true
+      },
+      "startDt": {
+        "type": "date",
+        "required": true
+      },
+      "endDt": {
+        "type": "date",
+        "required": false
+      },
+      "text": {
+        "type": "string",
+        "required": true
+      },
+      "imgPath": {
+        "type": "string",
+        "required": false
+      },
+      "bannerImgPath": {
+        "type": "string",
+        "required": false
+      },
+      "criteria": {
+        "type": "string",
+        "required": false
+      },
+      "tncLink": {
+        "type": "string",
+        "required": false
+      },
+      "publicUrl": {
+        "type": "string",
+        "required": false
+      },
+      "hasTokenAlloted": {
+        "type": "boolean",
+        "required": true,
+        "default": false
+      },
+      "hasCertificateIssued": {
+        "type": "boolean",
+        "required": true,
+        "default": false
+      },
+      "tokenAllotedOn": {
+        "type": "date",
+        "required": false
+      },
+      "certIssuedOn": {
+        "type": "date",
+        "required": false
+      }
+    },
+    "validations": [],
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "tokenAllotedByUser": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "certIssuedByUser": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "company": {
+        "type": "belongsTo",
+        "model": "Company",
+        "foreignKey": ""
+      },
+      "form": {
+        "type": "belongsTo",
+        "model": "Form",
+        "foreignKey": ""
+      },
+      "status": {
+        "type": "belongsTo",
+        "model": "ProgramStatus",
+        "foreignKey": ""
+      }
+    },
+    "acls": [
+      {
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "getPublicProgramDetail"
+      },
+      {
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW",
+        "property": "allocateToken"
+      }
+    ],
+    "methods": {}
+}
+    

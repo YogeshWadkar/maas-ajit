@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+}
+
+mat-grid-tile mat-card {
+  width: 90%;
+  /* height: 80%; */
+}
+
+.footer-note {
+  margin-left: 12px;
+  font-size: 0.8em;
+  /* font-weight: 200; */
+  color: lightslategray;
+}
+
+.rating-spacing {
+  /* padding-right:30px; */
+  float: left;
+  width: 160px;
+  padding-top: 6px;
+}
+
+.no-data img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.no-data {
+  text-align: center;
+}
+
+.ad-banner {
+  width: 200px;
+}

@@ -1,0 +1,22 @@
+<div>
+  <mat-toolbar>
+    <span>{{ title }}</span>
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="accent" (click)="add()">
+      <mat-icon>add</mat-icon>
+      Add 
+    </button>
+  </mat-toolbar>
+
+  <mat-tab-group (selectedTabChange)="getCategorywiseData($event)">
+    <mat-tab *ngFor="let category of categories" [label]="category.name">
+      <tt-dynamic-table
+        (pageChanged)="onPageChanged($event)"
+        [data]="data"
+        [totalCount]="count"
+        [columns]="columns[role]"
+        (actionClicked)="onActionClicked($event)"
+        (actionableClicked)="onActionableClicked($event)"></tt-dynamic-table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

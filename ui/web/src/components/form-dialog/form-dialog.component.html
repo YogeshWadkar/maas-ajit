@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{ data.title || defaultTitle }}</h1>
+<div mat-dialog-content>
+  <p *ngIf="data.note" class="note">{{ data.note }}</p>
+  <tt-dynamic-form #dynamicform
+    [fields]="data.fields"
+    [values]="data.values"
+    (statusChange)="statusChanged($event)"
+  ></tt-dynamic-form>
+</div>
+<div mat-dialog-actions *ngIf="!data.viewOnly">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" [disabled]="formStatus=='INVALID'" (click)="close(data.fields, dynamicform.getValue())">
+    {{ data.saveBtnTxt || defaultSaveBtnTxt }}
+  </button>
+  <!-- <button mat-button color="primary" (click)="close(data.fields)" [disabled]="!form.valid">
+    {{ data.saveBtnTxt || defaultSaveBtnTxt }}
+  </button> -->
+</div>

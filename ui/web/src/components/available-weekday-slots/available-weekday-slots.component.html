@@ -1,0 +1,71 @@
+<div>
+    <mat-toolbar>
+        <span>Available Weekday Slots</span>
+    </mat-toolbar>
+
+    
+    <!-- tabs demo -->
+    <!-- <mat-tab-group>
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group> -->
+
+
+<div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+    
+    <mat-tab-group (selectedTabChange)="weekdayChanged($event)">
+        <div class="row" *ngFor="let weekday of weekdays">
+                <mat-tab> 
+                    <ng-template matTabLabel>
+                        <span *ngIf="weekdayWiseAllowedSlots[weekday.name] > 0" [matBadge]="weekdayWiseAllowedSlots[weekday.name]" matBadgeOverlap="false">{{weekday.name|uppercase}}</span>
+                        <span *ngIf="weekdayWiseAllowedSlots[weekday.name] == 0">{{weekday.name|uppercase}}</span>
+                    </ng-template> 
+               <div *ngIf="availableSlots" fxLayout="column" fxLayoutAlign="start stretch" class="row weekbottom">
+                    <div fxLayout="row" fxLayoutGap="40px">
+                        <div class="fill-half">
+                            <mat-toolbar>
+                                <span>Slots not availed</span>
+                                <span class="fill-remaining-space"></span>
+                                <mat-button-toggle-group name="ampm" aria-label="AM or PM" [(value)]="selectedMeridian">
+                                    <mat-button-toggle value="all" (click)="filterAllSlots(weekday)">All</mat-button-toggle>
+                                    <mat-button-toggle value="am" (click)="filterAMSlots(weekday)">AM</mat-button-toggle>
+                                    <mat-button-toggle value="pm" (click)="filterPMSlots(weekday)">PM</mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </mat-toolbar> 
+                        <tt-dynamic-table [pagination]="false" [totalCount]="availableSlots[weekday.name]? availableSlots[weekday.name].length : 0" [data]="availableSlots[weekday.name]" [columns]="displayedColumns1" (actionClicked)="onActionClicked($event, weekday)"></tt-dynamic-table>
+                    </div>
+            
+                        <div class="fill-half">
+                            <mat-toolbar>
+                                <span>Slots allowed</span>
+                            </mat-toolbar>
+                            <tt-dynamic-table [pagination]="false" [totalCount]="allowedSlots[weekday.name]? allowedSlots[weekday.name].length : 0" [data]="allowedSlots[weekday.name]" [columns]="displayedColumns2" (actionClicked)="onActionClicked($event, weekday)"></tt-dynamic-table>
+                        </div>
+                    </div>
+                </div>
+               <!-- end -->
+            </mat-tab>
+           
+        </div>
+          </mat-tab-group>
+      </div>
+    <!-- end -->
+
+
+   
+
+    <!-- <mat-accordion multi="false">
+        <mat-expansion-panel *ngFor="let weekday of weekdays">
+            <mat-expansion-panel-header>
+                
+                <mat-panel-title>
+                     //its not working in your code not used <mat-icon style="background-color: red;color: white">calendar_today</mat-icon> 
+                    {{weekday.name}} Slots
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+        
+         
+        </mat-expansion-panel>
+    </mat-accordion> -->
+</div>

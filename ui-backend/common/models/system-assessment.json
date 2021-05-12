@@ -1,0 +1,9 @@
+{
+  "name": "SystemAssessment",
+  "base": "TTBasePersistedModel",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

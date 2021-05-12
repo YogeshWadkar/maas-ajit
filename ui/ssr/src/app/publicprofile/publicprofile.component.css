@@ -1,0 +1,153 @@
+.user-stats {
+  margin: auto;
+  width: 100%;
+  padding: 12px;
+}
+.userdata {
+  margin-top: 50px !important;
+  margin: 20px 18px;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+.item-3 {
+  border-right: 2px solid darkgray;
+  border-right-style: dotted;
+  padding-right: 8px;
+}
+.user-profile-left {
+  text-align: center;
+  width: 100%;
+  /* background-color: azure; */
+}
+
+.user-stats mat-card {
+  min-width: 70px;
+}
+
+.user-stat {
+  /* float:left; */
+  min-width: 70px;
+  max-width: 125px;
+  margin: 5px;
+  /* background-color:coral; */
+  /* padding:12px; */
+  display: inline-block;
+  text-align: center;
+}
+
+.large-text {
+  font-size: 3em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.light {
+  font-weight: 200;
+}
+
+.user-stat-param {
+  margin-top: 0px;
+  font-weight: 200;
+}
+
+tt-star-rating .mat-icon {
+  width: 48px important !;
+  font-size: 3em important !;
+}
+
+tt-star-rating mat-icon {
+  width: 48px important !;
+  font-size: 3em important !;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 12px;
+  color: #888888;
+}
+
+mat-grid-tile mat-tab-group {
+  height: 100%;
+}
+
+.label {
+  font-weight: 200;
+}
+
+.orange {
+  color: #f06b4e;
+}
+
+.user-profile-left img {
+  border-radius: 125px;
+  width: 250px;
+  height: 250px;
+  margin-top: 50px;
+}
+
+.left-panel mat-grid-list {
+  width: 100%;
+}
+
+.large-text {
+  margin-bottom: 0;
+  margin-top: 50px;
+  font-size: 3em;
+}
+
+.medium-text {
+  font-size: 1.2em;
+}
+
+.stretch-2-col {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+a {
+  color: #f06b4e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.heading-text {
+  font-size: 1.7em;
+  margin-bottom: 24px;
+  line-height: 48px;
+  margin-top: 60px;
+}
+.free {
+  font-size: 1.8em;
+  line-height: 18px;
+  margin-bottom: 30px;
+}
+
+.signup-btn {
+  width: 220px;
+}
+
+.about-txt {
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+.right-panel {
+  padding: 24px;
+}
+
+.about-me {
+  text-align: justify;
+  padding-left: 12px;
+  line-height: 24px;
+}
+
+.about-me .label {
+  font-weight: bold;
+}

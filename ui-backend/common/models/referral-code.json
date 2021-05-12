@@ -1,0 +1,62 @@
+{
+  "name": "ReferralCode",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "index": {
+        "unique": true
+      }
+    },
+    "inviteeEmail": {
+      "type": "string",
+      "required": false
+    },
+    "invitedOnDtm": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "hasOpened": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "hasSignedUp": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "hasConfirmed": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "hasTokenAllocated": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "inviteSent": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "invitedByUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "inviteeUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

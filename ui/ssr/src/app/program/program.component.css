@@ -1,0 +1,83 @@
+
+.large-text {
+    font-size: 3em;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.label {
+    font-weight: 200;
+}
+
+.orange {
+    color: #f06b4e;
+}
+.large-text {
+    font-size: 4em;
+}
+
+.medium-text {
+    font-size: 1.2em;
+}
+
+.stretch-2-col {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+a {
+    color: #f06b4e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.heading-text {
+    font-size: 2.4em;
+    margin-bottom: 24px;
+    line-height: 48px;
+    margin-top: 80px;
+}
+
+.signup-btn {
+    width: 220px;
+}
+
+.about-txt {
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.right-panel {
+    padding: 24px;
+}
+
+.about-me {
+    text-align: justify;
+    padding-left: 12px;
+    line-height: 24px;
+}
+
+.about-me .label {
+    font-weight: bold;
+}
+
+.description {
+    line-height: 24px;
+}
+
+.left-panel div {
+    padding: 12px;
+}
+
+.right-panel {
+    width: 640px;
+}
+.left-panel {
+    width: 100%;
+}

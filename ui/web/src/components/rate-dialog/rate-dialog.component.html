@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>
+  Rate {{ data.userBeingRated.firstName }} {{ data.userBeingRated.lastName }}
+</h1>
+<div class="rating">
+  <!-- <mat-icon (click)="captureRating(1)" [class.checked]="0 < rating">star</mat-icon>
+  <mat-icon (click)="captureRating(2)" [class.checked]="1 < rating">star</mat-icon>
+  <mat-icon (click)="captureRating(3)" [class.checked]="2 < rating">star</mat-icon>
+  <mat-icon (click)="captureRating(4)" [class.checked]="3 < rating">star</mat-icon>
+  <mat-icon (click)="captureRating(5)" [class.checked]="4 < rating">star</mat-icon> -->
+
+  <span (click)="captureRating(5)" [class.checked]="4 < rating">☆</span
+  ><span (click)="captureRating(4)" [class.checked]="3 < rating">☆</span
+  ><span (click)="captureRating(3)" [class.checked]="2 < rating">☆</span
+  ><span (click)="captureRating(2)" [class.checked]="1 < rating">☆</span
+  ><span (click)="captureRating(1)" [class.checked]="0 < rating">☆</span>
+</div>
+<!-- <p *ngIf="rating">You rated: {{rating}}</p> -->
+<span class="very-bad">Very Bad</span>
+<span class="very-good">Very Good</span>
+<div class="reset-float" mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="confirm()">Submit</button>
+</div>

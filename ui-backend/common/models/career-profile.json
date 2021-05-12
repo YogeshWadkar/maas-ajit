@@ -1,0 +1,43 @@
+{
+    "name": "CareerProfile",
+    "base": "TTBasePersistedModel",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "altName": {
+        "type": "string",
+        "required": false
+      },
+      "description": {
+        "type": "string",
+        "required": false
+      },
+      "iconUrl": {
+        "type": "string",
+        "required": false
+      }
+    },
+    "validations": [],
+    "relations": {
+      "createdByUser": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "status": {
+        "type": "belongsTo",
+        "model": "CareerProfileStatus",
+        "foreignKey": ""
+      },
+      "assessments": {
+        "type": "hasMany",
+        "model": "SelfAssessment",
+        "foreignKey": "profileId",
+        "primaryKey": "id"
+      }
+    },
+    "acls": [],
+    "methods": {}
+}

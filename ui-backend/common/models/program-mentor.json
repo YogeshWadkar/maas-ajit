@@ -1,0 +1,21 @@
+{
+    "name": "ProgramMentor",
+    "base": "TTBasePersistedModel",
+    "properties": {
+    },
+    "validations": [],
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "TTUser",
+        "foreignKey": ""
+      },
+      "program": {
+        "type": "belongsTo",
+        "model": "Program",
+        "foreignKey": ""
+      }
+    },
+    "acls": [],
+    "methods": {}
+}

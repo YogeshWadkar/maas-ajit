@@ -1,0 +1,30 @@
+{
+  "name": "Rating",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fromUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "forUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "meeting": {
+      "type": "belongsTo",
+      "model": "Meeting",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

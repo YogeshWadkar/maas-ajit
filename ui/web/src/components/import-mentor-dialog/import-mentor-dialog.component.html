@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>Import Mentors</h1>
+
+<!-- <input *ngIf="!isFileUploaded" type="file" ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected()"/> -->
+
+<!-- <div mat-dialog-content> -->
+
+<div *ngIf="!isFileUploaded && !error" class="file-upload-wrapper">
+  <span class="fill-remaining-space"></span>
+  <input
+    class="ng-hide"
+    id="input-file-id"
+    type="file"
+    ng2FileSelect
+    [uploader]="uploader"
+    (onFileSelected)="onFileSelected()"
+  />
+  <label for="input-file-id" class="mat-button mat-raised-button mat-primary"
+    >Select a file (.csv or .xlsx)</label
+  >
+  <span class="fill-remaining-space"></span>
+</div>
+
+<!-- <div *ngIf="!isFileUploaded && !error" class="file-upload-wrapper">
+        <span class="fill-remaining-space"></span>
+        <label class="file">
+          <input type="file" id="file" aria-label="File browser" ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected()">
+          <span class="file-custom"></span>
+        </label>
+        <span class="fill-remaining-space"></span>
+      </div> -->
+
+<div *ngIf="isFileUploaded && !error">
+  <p>Map fields from the uploaded file to the target system fields</p>
+  <mat-list>
+    <h3 matSubheader>
+      <span style="width:50%;">From file</span>
+      <span>Target field</span>
+    </h3>
+    <mat-list-item *ngFor="let field of fieldsMap['sourceFields']">
+      <span matLine style="width:150px;">{{ field.displayName }}</span>
+      <mat-select
+        [value]="fieldsMap['targetFields'][0].name"
+        (selectionChange)="handleSelectionChange($event, field)"
+      >
+        <mat-option
+          *ngFor="let trgtField of fieldsMap['targetFields']"
+          [value]="trgtField.name"
+          >{{ trgtField.displayName }}</mat-option
+        >
+      </mat-select>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div *ngIf="error">
+  Failed to import data. Please review the below error and try again after
+  resolving it.
+  <!-- <p *ngFor="let key of error.error.error.details.messages">{{key}}</p> -->
+  <p class="error-txt">{{ error.error.error.message }}</p>
+</div>
+
+<div *ngIf="success">Total mentors imported: {{ stats }}</div>
+<!-- </div> -->
+
+<div *ngIf="isFileUploaded && !error" mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="confirm()">Proceed</button>
+</div>
+
+<div *ngIf="error" mat-dialog-actions>
+  <button mat-button color="primary" (click)="cancel()">Ok</button>
+</div>

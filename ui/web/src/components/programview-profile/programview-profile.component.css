@@ -1,0 +1,120 @@
+.user-stats {
+  margin: auto;
+  width: 100%;
+  padding: 12px;
+}
+
+.user-profile-left {
+  text-align: center;
+  width: 100%;
+  /* background-color: azure; */
+}
+
+.user-stats mat-card {
+  min-width: 70px;
+}
+
+.user-stat {
+  /* float:left; */
+  min-width: 70px;
+  max-width: 125px;
+  margin: 5px;
+  /* background-color:coral; */
+  /* padding:12px; */
+  display: inline-block;
+  text-align: center;
+}
+
+.large-text {
+  font-size: 3em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.light {
+  font-weight: 200;
+}
+
+.user-stat-param {
+  margin-top: 0px;
+  font-weight: 200;
+}
+
+tt-star-rating .mat-icon {
+  width: 48px important !;
+  font-size: 3em important !;
+}
+
+tt-star-rating mat-icon {
+  width: 48px important !;
+  font-size: 3em important !;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 12px;
+  color: #888888;
+}
+
+mat-grid-tile mat-tab-group {
+  height: 100%;
+}
+
+.label {
+  font-weight: 200;
+}
+
+.orange {
+  color: #f06b4e;
+}
+
+.user-profile-left img {
+  border-radius: 125px;
+  width: 250px;
+  height: 250px;
+}
+
+.user-profile-left1 img {
+  width: 262px;
+  height: 500px;
+}
+
+.mat-grid-tile {
+  display: block;
+  position: absolute;
+  overflow: inherit !important;
+}
+
+.iconslist {
+  line-height: 20px;
+  float: left;
+  display: block;
+  margin-right: 15px;
+  text-align: center;
+  color: #f06b4e;
+  vertical-align: middle;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 2px 1px -1px rgb(255, 255, 255), 0px 1px 1px 0px rgb(255, 255, 255), 0px 1px 3px 0px rgb(255, 255, 255);
+}
+
+.right {
+  position: relative;
+  text-align: end;
+  margin-left: 60px;
+}
+
+.margin {
+  margin-right: 20px;
+}
+
+.userdata {
+  padding: 12px 0px 0px;
+  margin-top: 8px;
+}
+
+p {
+  padding: 13px 7px 0px;
+  margin-top: 16px;
+}

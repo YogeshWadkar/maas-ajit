@@ -1,0 +1,72 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="field.controlType">
+    <mat-form-field *ngSwitchCase="'textbox'">
+      <input
+        matInput
+        [placeholder]="field.label"
+        [required]="field.required"
+        [formControlName]="field.key"
+        [id]="field.key"
+        [type]="field.type"
+      />
+      <mat-error *ngIf="form.get(field.key).hasError('required')">
+        {{ field.label }} is required
+      </mat-error>
+      <mat-error *ngIf="form.get(field.key).hasError('ValidationError')">
+        {{ field.label }} is invalid
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'date'">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [id]="field.key"
+        [min]="field.startAt"
+        [placeholder]="field.label"
+        [required]="field.required"
+        [formControlName]="field.key"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker [startAt]="field.startAt"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-slide-toggle
+      *ngSwitchCase="'toggle'"
+      labelPosition="before"
+      color="primary"
+      [attr.checked]="field.value"
+      [formControlName]="field.key"
+      >{{ field.label }}</mat-slide-toggle
+    >
+    <mat-form-field *ngSwitchCase="'textarea'">
+      <textarea
+        matInput
+        [placeholder]="field.label"
+        [formControlName]="field.key"
+        [customEmailsValidator]="field.pattern"
+        [required]="field.required"
+      ></textarea>
+      <mat-error *ngIf="form.get(field.key).hasError('required')">
+        {{ field.label }} is required
+      </mat-error>
+      <mat-error *ngIf="form.get(field.key).hasError('invalidEmails')">
+        One or more emails are invalid.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'dropdown'">
+      <mat-select
+        [id]="field.key"
+        [placeholder]="field.label"
+        [required]="field.required"
+        [formControlName]="field.key"
+      >
+        <mat-option *ngFor="let opt of field.options" [value]="opt.id">{{
+          opt.value
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <!-- <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div> -->
+</div>

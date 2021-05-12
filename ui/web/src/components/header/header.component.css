@@ -1,0 +1,112 @@
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.elevate {
+  z-index: 2;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.user-area {
+  border-radius: 5px;
+  border-color: #dadce0;
+  border-style: l;
+  margin-left: 18px;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.user-area:hover {
+  cursor: pointer;
+  border-color: #dadce0;
+  background-color: #fbe9e7;
+}
+
+.user-welcome {
+  float: left;
+  font-weight: 200;
+  font-size: 0.6em;
+  margin-top: 6px;
+}
+
+.user-img {
+  width: 100%;
+  height: 100%;
+  float: left;
+  border-radius: 48px;
+}
+
+.user-profile-img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border-radius: 50px;
+}
+
+.user-detail-area {
+  margin-left: 100px;
+  margin-top: 24px;
+}
+
+.user-name {
+  margin: 12px 0px 0px 12px;
+  font-weight: 700;
+}
+
+.user-role {
+  margin-top: 6px;
+  margin-left: 12px;
+  font-weight: 200;
+  font-size: 0.8em;
+}
+
+.view-profile-btn {
+  margin-left: 12px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+  right: 0px;
+  top: 0px;
+}
+
+.notify-container {
+  margin: 12px;
+}
+
+.notify-profile-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  float: left;
+}
+
+.log-msg {
+  font-weight: 200;
+  font-size: 0.8em;
+}
+
+.log-date {
+  font-weight: 200;
+  font-size: 0.6em;
+  margin-top: 4px;
+  color: #544766;
+}
+
+.menu-center-btn {
+  margin: auto;
+  display: block;
+}
+
+.notification-text {
+  margin-left: 60px;
+}
+
+.invite-text {
+  font-weight: 200;
+}

@@ -1,0 +1,93 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content class="dialog-border">
+    <form
+    (ngSubmit)="onSubmit(careerProfilesFormGroup.value)"
+    [formGroup]="careerProfilesFormGroup"
+    class="form-container"
+>
+    <mat-form-field>
+        <input
+        matInput
+        placeholder="Name"
+        required
+        formControlName="name"
+        cdkFocusInitial
+        />
+        <mat-error *ngIf="careerProfilesFormGroup.get('name').hasError('required')">
+        Career Profile Name is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea
+        matInput
+        placeholder="Alternative Names for Career Profile(Comma Seperated)"
+        required
+        formControlName="altName"
+        ></textarea>
+        <mat-error *ngIf="careerProfilesFormGroup.get('altName').hasError('required')">
+        This field is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea
+        matInput
+        placeholder="Description"
+        required
+        formControlName="description"
+        ></textarea>
+        <mat-error *ngIf="careerProfilesFormGroup.get('description').hasError('required')">
+        Description is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field [ngClass]="{'skill-input' : true, 'mat-form-field-invalid' : careerProfilesFormGroup.get('skills').invalid && careerProfilesFormGroup.get('skills').touched && skills.length === 0}">
+    <!-- <mat-form-field> -->
+        <mat-chip-list
+        #chipList
+        aria-label="Skills selection"
+        >
+        <mat-chip
+            *ngFor="let skill of skills"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="removeSkill(skill)"
+        >
+            {{ skill.name }}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+            placeholder="Add Skills"
+            #skillInput
+            formControlName="skills"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="addSkill($event)"
+        />
+        </mat-chip-list>
+        <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+        >
+        <mat-option
+            *ngFor="let skill of filteredSkills | async"
+            [value]="skill"
+        >
+            {{ skill }}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <span *ngIf="careerProfilesFormGroup.get('skills').invalid && careerProfilesFormGroup.get('skills').touched && skills.length===0" class="skill-error">
+        This field is required
+    </span>
+    </form>
+</div>
+<div *ngIf="!data.readOnly" mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button [disabled]="careerProfilesFormGroup.status == 'INVALID' || skills.length === 0" mat-button color="primary" type="submit" (click)="onSubmit(careerProfilesFormGroup.value)">
+    Save
+  </button>
+</div>

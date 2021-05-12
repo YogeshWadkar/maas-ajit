@@ -1,0 +1,4 @@
+<mat-dialog-content>
+  <tt-search-guru columns="4" searchBy="bySkills" [searchTxt]="data.skills" [levelId]="data.levelId" [role]="data.role"
+    [requestBtnLabel]="data.requestBtnLabel" eventOnSelection="true" (mentorSelected)="requestAssessment($event)"></tt-search-guru>
+</mat-dialog-content>

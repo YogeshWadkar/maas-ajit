@@ -1,0 +1,19 @@
+<div>
+    <mat-toolbar>
+      <span>Manage Request Forms</span>
+      <span class="fill-remaining-space"></span>
+      <button mat-raised-button color="accent" (click)="add()">
+        <mat-icon>add</mat-icon>
+        Add
+      </button>
+    </mat-toolbar>
+    <tt-dynamic-table
+      [data]="data"
+      [columns]="columns"
+      [totalCount]="totalCount"
+      (pageChanged)="onPageChanged($event)"
+      (actionClicked)="onActionClicked($event)"
+      (actionableClicked)="onActionableClicked($event)"
+    ></tt-dynamic-table>
+  </div>
+  

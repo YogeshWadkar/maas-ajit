@@ -1,0 +1,18 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+.mat-form-field {
+    display: block; 
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 387px !important;
+    /* width: 100%; */
+}

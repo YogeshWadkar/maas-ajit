@@ -1,0 +1,35 @@
+{
+  "name": "Form",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "config": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": ""
+    },
+    "status": {
+      "type": "belongsTo",
+      "model": "FormStatus",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
+  

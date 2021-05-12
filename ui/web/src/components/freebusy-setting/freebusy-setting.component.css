@@ -1,0 +1,28 @@
+.setting-fb {
+    /* display: flex;
+    flex-direction: column;
+    position: absolute; */
+    /* left: 50%; */
+    margin-left: 48px;
+    margin-top: 48px;
+  }
+
+  .container {
+    width: 640px;
+  }
+  
+  .container mat-form-field {
+      width: 100%;
+  }
+
+  .setting-fb button {
+      margin-right: 24px;
+  }
+
+  #how-others-will-see {
+    margin-top: 24px;
+  }
+
+  .heading {
+    font-weight: 100;
+  }

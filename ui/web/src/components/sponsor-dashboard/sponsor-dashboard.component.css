@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+mat-grid-tile mat-card {
+  width: 90%;
+}
+
+mat-card p {
+  margin-top: 24px;
+}
+
+/* mat-card-content mat-divider {
+    margin-left: 12px;
+    margin-right: 12px;
+  } */
+
+.heading-text {
+  font-size: 2.4em;
+}
+
+mat-grid-list {
+  margin-bottom: 20px;
+}

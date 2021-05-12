@@ -1,0 +1,107 @@
+<tt-header [hideActions]="true"></tt-header>
+<mat-toolbar color="primary" class="menubar">
+  <button routerLink="/admin" mat-button>
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="manageIGMenu">
+    <mat-icon>person</mat-icon>
+    Manage Mentor
+  </button>
+  <mat-menu #manageIGMenu="matMenu">
+    <button routerLink="/admin/pending-ig-approval" mat-menu-item>
+      Pending Approvals
+    </button>
+    <button routerLink="/admin/view-all-mentor" mat-menu-item>View All</button>
+  </mat-menu>
+
+  <button mat-button routerLink="/admin/assessment-requests">
+    <mat-icon>playlist_add_check</mat-icon>
+    Assessment Requests
+  </button>
+
+
+  <button mat-button [matMenuTriggerFor]="adminMeetingsMenu">
+    <mat-icon>group</mat-icon>
+    Meeting
+  </button>
+  <mat-menu #adminMeetingsMenu="matMenu">
+    <button routerLink="/admin/review-meetings" mat-menu-item>
+      Approve/Reject Meetings
+    </button>
+    <button routerLink="/admin/upcoming-meetings" mat-menu-item>
+      Upcoming Meetings
+    </button>
+    <button routerLink="/admin/completed-meetings" mat-menu-item>
+      Completed Meetings
+    </button>
+    <button routerLink="/admin/expired-meetings" mat-menu-item>
+      Expired Meetings
+    </button>
+  </mat-menu>
+
+
+  <button mat-button routerLink="/admin/actions-tracker">
+    <mat-icon>assignment_turned_in</mat-icon>
+    Actions Tracker
+  </button>
+
+  
+  <button mat-button routerLink="/admin/referral-details">
+    <mat-icon>loyalty</mat-icon>
+    Referral Detail
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="programsMenu">
+    <mat-icon>local_florist</mat-icon>
+    Programs
+  </button>
+  <mat-menu #programsMenu="matMenu">
+    <button routerLink="/admin/manage-programs" mat-menu-item>
+      View Programs
+    </button>
+    <button routerLink="/admin/program-requests" mat-menu-item>
+      Enrolment Requests
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="systemMenu">
+    <mat-icon>settings_applications</mat-icon>
+    Setup
+  </button>
+  <mat-menu #systemMenu="matMenu">
+    <button routerLink="/admin/company" mat-menu-item>Companies</button>
+    <button routerLink="/admin/sponsor" mat-menu-item>Sponsors</button>
+    <mat-divider></mat-divider>
+    <button routerLink="/admin/skill-category" mat-menu-item>
+      Skill Category
+    </button>
+    <button routerLink="/admin/skill" mat-menu-item>Skill</button>
+    <mat-divider></mat-divider>
+    <button routerLink="/admin/manage-profiles" mat-menu-item>Career Profiles</button>
+    <mat-divider></mat-divider>
+    <button routerLink="/admin/system-configuration" mat-menu-item>
+      System Configuration
+    </button>
+    <!-- <button routerLink="/admin/system-tracker" mat-menu-item>System Tracker</button> -->
+  </mat-menu>
+
+
+  <!-- <button routerLink="/career-seeker/dashboard" mat-button>
+        <mat-icon>settings_applications</mat-icon>
+        Settings
+    </button> -->
+
+  <!-- <button routerLink="/admin/payment-setup" mat-button>
+        <mat-icon>payment</mat-icon>
+        Payment Setup
+    </button> -->
+
+  <!-- <button routerLink="/admin/question-bank" mat-button>
+        <mat-icon>question_answer</mat-icon>
+        Questions Bank
+    </button> -->
+</mat-toolbar>
+<!-- <tt-self-assessment></tt-self-assessment> -->
+<ng-template></ng-template>

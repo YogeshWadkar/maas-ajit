@@ -1,0 +1,40 @@
+mat-form-field {
+    width: 100%;
+}
+
+.f-paragraph {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.f-checkbox {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.f-radio {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.label {
+    padding-right: 12px;
+}
+
+.radio-item {
+    padding-right: 12px;
+}
+
+.cbx-item {
+    padding-right: 12px;
+}
+
+.file-upload {
+    margin-bottom: 24px;
+}
+
+.view-file {
+    margin-bottom: 24px;
+}

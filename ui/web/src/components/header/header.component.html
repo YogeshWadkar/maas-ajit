@@ -1,0 +1,150 @@
+<mat-toolbar class="mat-elevation-z8">
+  <img width="140px" src="../../assets/images/imagelists/Artboard_22.png" />
+
+  <span class="fill-remaining-space"></span>
+
+  <span *ngIf="showInvite" class="invite-text"
+    >You know someone who may help the community?&nbsp;&nbsp;</span
+  >
+  <button *ngIf="showInvite" mat-button color="primary" (click)="invite()">
+    INVITE AND WIN REWARDS
+  </button>
+
+  <span class="fill-remaining-space"></span>
+
+  <mat-menu #meetingNotificationsMenu="matMenu">
+    <div
+      class="notify-container"
+      *ngFor="let notification of meetingNotifications"
+    >
+      <img
+        class="notify-profile-pic"
+        src="../../{{ notification.fromUser.fromUserDetail.avatarUrl }}"
+      />
+      <!-- <img class="user-profile-img" style="width:48px;height:48px;" src="../..{{user.userDetail.avatarUrl}}"> -->
+      <div class="notification-text">
+        <span
+          >{{ notification.fromUser.firstName }}
+          {{ notification.fromUser.lastName }}</span
+        >
+        <span class="log-msg"> {{ notification.message }}</span>
+        <p class="log-date">{{ notification.createdon | ttdateago }}</p>
+      </div>
+      <div style="clear: both;"></div>
+      <mat-divider></mat-divider>
+    </div>
+    <button
+      mat-button
+      color="primary"
+      class="menu-center-btn"
+      (click)="markMeetingsAsRead()"
+    >
+      ALL CAUGHT UP!
+    </button>
+  </mat-menu>
+  <button
+    *ngIf="!hideActions && meetingNotifications.length == 0"
+    mat-icon-button
+  >
+    <mat-icon>calendar_today</mat-icon>
+  </button>
+  <button
+    *ngIf="!hideActions && meetingNotifications.length > 0"
+    mat-icon-button
+    [matBadge]="meetingNotifications.length"
+    matBadgePosition="after"
+    matBadgeColor="primary"
+    [matMenuTriggerFor]="meetingNotificationsMenu"
+  >
+    <mat-icon>calendar_today</mat-icon>
+  </button>
+
+  <mat-menu #activityNotificationsMenu="matMenu">
+    <div
+      class="notify-container"
+      *ngFor="let notification of activityNotifications"
+    >
+      <img
+        class="notify-profile-pic"
+        src="../../{{ notification.fromUser.fromUserDetail.avatarUrl }}"
+      />
+      <!-- <img class="user-profile-img" style="width:48px;height:48px;" src="../..{{user.userDetail.avatarUrl}}"> -->
+      <div class="notification-text">
+        <span
+          >{{ notification.fromUser.firstName }}
+          {{ notification.fromUser.lastName }}</span
+        >
+        <span class="log-msg"> {{ notification.message }}</span>
+        <p class="log-date">{{ notification.createdon | ttdateago }}</p>
+      </div>
+      <div style="clear: both;"></div>
+      <mat-divider></mat-divider>
+    </div>
+    <button
+      mat-button
+      color="primary"
+      class="menu-center-btn"
+      (click)="markActivitiesAsRead()"
+    >
+      ALL CAUGHT UP!
+    </button>
+  </mat-menu>
+  <button
+    *ngIf="!hideActions && activityNotifications.length == 0"
+    mat-icon-button
+  >
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button
+    *ngIf="!hideActions && activityNotifications.length > 0"
+    mat-icon-button
+    [matBadge]="activityNotifications.length"
+    matBadgePosition="after"
+    matBadgeColor="primary"
+    [matMenuTriggerFor]="activityNotificationsMenu"
+  >
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <div style="margin: 12px;">
+      <!-- <img class="user-profile-img" src="../../assets/images/imagelists/avatar-1606916_960_720.png"> -->
+      <img
+        class="user-profile-img"
+        src="../..{{ user.userDetail.avatarUrl }}"
+      />
+      <div class="user-detail-area">
+        <div class="user-name">{{ user.firstName }} {{ user.lastName }}</div>
+        <div class="user-role">{{ user.role.description }}</div>
+        <button
+          class="view-profile-btn"
+          mat-raised-button
+          color="primary"
+          routerLink="/profile"
+        >
+          View/Edit Profile
+        </button>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-menu-item routerLink="/change-password">
+      <mat-icon>lock_open</mat-icon>
+      Change Password
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+  <div *ngIf="!hideUserAction" class="user-area" [matMenuTriggerFor]="userMenu">
+    <div class="user-welcome">Hello {{ user.firstName }}</div>
+    <button mat-icon-button>
+      <mat-icon>
+        <!-- <img class="user-img" src="../../assets/images/imagelists/avatar-1606916_960_720.png"> -->
+        <img class="user-img" src="../..{{ user.userDetail.avatarUrl }}" />
+        <!-- <img class="user-img" src="../../assets/images/default-profile.png"> -->
+      </mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

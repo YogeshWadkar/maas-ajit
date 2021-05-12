@@ -1,0 +1,12 @@
+.chat-dlg-container {
+    display: -webkit-flex;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.chat-dialog {
+    position: fixed;
+    bottom: 0px;
+    z-index: 99 !important;
+}

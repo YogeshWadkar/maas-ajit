@@ -1,0 +1,138 @@
+<head>
+  <style>
+    body {
+      font-family: "Roboto", arial, sans-serif;
+      color: #9b9b9b;
+    }
+
+    p {
+      font-size: 16px;
+      /* line-height: 28px; */
+    }
+
+    a {
+      color: #9b9b9b;
+    }
+
+    a.hover {
+      color: #f06b4e;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+    }
+    .heading {
+      font-size: 2em;
+      font-weight: bold;
+      color: #414040;
+    }
+
+    .button a {
+      border: #f06b4e;
+      background-color: #f06b4e;
+      width: 240px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+
+      border-radius: 5px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      padding: 0.5em;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .wrapper {
+      background-color: #fbe9e7;
+      height: 100%;
+      width: 100%;
+    }
+
+    .container {
+      background-color: #fafafa;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+      padding: 24px;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .small {
+      font-size: 0.8em;
+    }
+
+    .code {
+      font-size: 2em;
+      font-weight: 200;
+      color: #f06b4e;
+    }
+  </style>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<html>
+  <body>
+    <div class="wrapper">
+      <!-- <img class="center" src="http://localhost:4200/assets/images/imagelists/Artboard_22.png"> -->
+      <img
+        class="center"
+        src="<%= externalUrl %>/assets/images/imagelists/Artboard_22.png"
+      />
+
+      <div class="container">
+        <h2 class="heading">You have been invited!</h2>
+
+        <p>Hi There!</p>
+
+        <p>
+          <%= invitedByUserName %> has invited you to join MaaS as you would be
+          of tremendous help to promote innovation in the community. Please
+          click the button below to Sign Up.
+        </p>
+
+        <span>Your referral code is: </span
+        ><span class="code"><%= referralCode %></span>
+
+        <p>This invitation will expire in <%= expiryDuration %></p>
+        <p>
+          If you have any question related to this email please contact us at
+          <a href="mailto:support@maas.com">support@maas.com</a>
+        </p>
+
+        <br />
+        <p><%= supportUserName %></p>
+        <p>MaaS Support Team</p>
+
+        <div class="button">
+          <a href="<%= signUpLink %>">Sign Up</a>
+        </div>
+        <p class="center-text">
+          Unable to click on the above button? Click here
+          <br />
+          <a href="<%= signUpLink %>" target="_blank">
+            <%= signUpLink %>
+          </a>
+        </p>
+        <br />
+      </div>
+      <p class="small center-text">
+        This is an automated message. Please do not reply.
+      </p>
+      <p class="small center-text">
+        Copyright&copy; TalTech Outreach Services Pvt. Ltd.
+      </p>
+    </div>
+  </body>
+</html>

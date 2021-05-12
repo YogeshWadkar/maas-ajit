@@ -1,0 +1,121 @@
+<div>
+  <mat-accordion *ngIf="role == 'career-seeker'">
+    <mat-expansion-panel *ngIf="seekerData.length > 0" [expanded]='seekerData.length != 0' hideToggle="true" (click)="click()">
+      <mat-expansion-panel-header [ngClass]="tickets-container-header">
+        <mat-toolbar>
+          <mat-panel-title>
+            <mat-icon>{{icon  ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon>
+            <span [matBadge]="seekerData.length" matBadgeOverlap="false">Your Career Profiles</span>
+            <span class="fill-remaining-space"></span>
+
+          </mat-panel-title>
+        </mat-toolbar>
+      </mat-expansion-panel-header>
+      <div class="mat-expansion-panel-body">
+        <div class="no-data" *ngIf="seekerData.length == 0">
+          <img src="../../assets/images/no-data.png" />
+          <span>No matching data found!</span>
+        </div>
+        
+        <mat-grid-list cols="5" rowHeight="520px" class="mat-expansion-pad">
+          <mat-grid-tile *ngFor="let seekerProfile of seekerData">
+            <mat-card class="card-width">
+              <mat-card-content>
+                <div class="profile-img">
+                  <img class="user-avatar profile-icon" [src]="seekerProfile.iconUrl" />
+                </div>
+                <mat-card-title class="clickable-title" (click)="viewdetails(seekerProfile)"> {{seekerProfile.name}}
+                </mat-card-title>
+                <mat-card-subtitle class="skill-text">Skills </mat-card-subtitle>
+                <p>
+                  {{ getSkillsList(seekerProfile.skills) }}
+                  <span *ngIf="getSkillsList(seekerProfile.skills, true).length > STRLEN" class="skill-info"
+                    matTooltipPosition="right" [matTooltip]="getSkillsList(seekerProfile.skills, true)">more</span>
+                </p>
+
+                <tt-progress-pie [progress]="seekerProfile.progress"></tt-progress-pie>
+
+              </mat-card-content>
+              <mat-card-actions class="">
+                <!-- <button mat-icon-button *ngIf="role == 'career-seeker'" (click)="viewdetails(user)" matTooltip="View detail"><mat-icon>info</mat-icon></button>
+                <button mat-icon-button *ngIf="role == 'career-seeker'" (click)="onProgressActionableClicked(user)" matTooltip="View progress report"><mat-icon>pie_chart</mat-icon></button>
+                <button mat-icon-button *ngIf="role == 'career-seeker'" (click)="removedetails(user)" matTooltip="Opt-out from the profile"><mat-icon>link_off</mat-icon></button> -->
+
+                <button mat-button color="primary" *ngIf="role == 'career-seeker'" (click)="viewdetails(seekerProfile)"
+                  matTooltip="View detail">DETAIL</button>
+                <button mat-button color="primary" *ngIf="role == 'career-seeker'"
+                  (click)="onProgressActionableClicked(seekerProfile)" matTooltip="View progress report">PROGRESS</button>
+                <button mat-button color="primary" *ngIf="role == 'career-seeker'" (click)="removedetails(seekerProfile)"
+                  matTooltip="Opt-out from the profile">REMOVE</button>
+
+                <!-- <button mat-raised-button (click)="onProgressActionableClicked(user)"
+                  class="mat-button btn-width actions" *ngIf="role == 'career-seeker'" color="primary">Progress
+                  <br />Report </button>
+                <button mat-raised-button class="mat-button btn-width actions" *ngIf="role == 'career-seeker'"
+                  color="primary" (click)="removedetails(user)">Remove <br />Profile </button> -->
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <!-- <tt-dynamic-table 
+      *ngIf="role == 'career-seeker'"
+      [data]="seekerData"
+      [columns]="columns[role]"
+      [totalCount]="seekerCount"
+      (pageChanged)="onSeekerPageChanged($event)"
+      (actionClicked)="onSeekerActionClicked($event)"
+      (actionableClicked)="onSeekerActionableClicked($event)"
+    ></tt-dynamic-table>    -->
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-toolbar>
+    <span>Available Career Profiles</span>
+    <span class="fill-remaining-space"></span>
+    <button *ngIf="role == 'admin'" mat-raised-button color="accent" (click)="addProfile()">
+      <mat-icon>add</mat-icon>
+      Add
+    </button>
+  </mat-toolbar>
+
+  <div class="no-data" *ngIf="data.length == 0 && role == 'career-seeker'">
+    <img src="../../assets/images/no-data.png" />
+    <span>No matching data found!</span>
+  </div>
+
+  <mat-grid-list cols="5" rowHeight="400px" *ngIf="data.length > 0 && role == 'career-seeker'">
+    <mat-grid-tile *ngFor="let profile of data">
+      <mat-card class="card-width">
+        <mat-card-content>
+          <div class="profile-img">
+            <img class="user-avatar profile-icon" [src]="profile.iconUrl" />
+          </div>
+          <mat-card-title class="clickable-title" (click)="viewdetails(profile)"> {{profile.name}}</mat-card-title>
+          <mat-card-subtitle class="skill-text">Skills </mat-card-subtitle>
+          <p>
+            {{ getSkillsList(profile.skills) }}
+            <span *ngIf="getSkillsList(profile.skills, true).length > STRLEN" class="skill-info" matTooltipPosition="right"
+              [matTooltip]="getSkillsList(profile.skills, true)">more</span>
+          </p>
+        <!-- <mat-card-title class="clickable-title" >  Skilss 
+        </mat-card-title> -->
+
+        </mat-card-content>
+        <mat-card-actions class="mat-card-actions ">
+          <!-- <button mat-icon-button *ngIf="role == 'career-seeker'" (click)="viewdetails(user)" matTooltip="View detail"><mat-icon>info</mat-icon></button>
+            <button mat-icon-button *ngIf="role == 'career-seeker'" (click)="add(user)" matTooltip="Opt for this profile"><mat-icon>link</mat-icon></button> -->
+
+          <button mat-button color="primary" *ngIf="role == 'career-seeker'" (click)="viewdetails(profile)"
+            matTooltip="View detail">DETAIL</button>
+          <button mat-button color="primary" *ngIf="role == 'career-seeker'" (click)="add(profile)"
+            matTooltip="Opt for this profile">ADD</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <tt-dynamic-table *ngIf="role == 'admin'" [data]="data" [columns]="columns[role]" [totalCount]="totalCount"
+    (pageChanged)="onPageChanged($event)" (actionClicked)="onActionClicked($event)"
+    (actionableClicked)="onActionableClicked($event)"></tt-dynamic-table>
+</div>

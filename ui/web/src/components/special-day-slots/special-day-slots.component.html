@@ -1,0 +1,90 @@
+<div>
+  <mat-toolbar>
+    <span>Special Day Slots</span>
+  </mat-toolbar>
+
+  <tt-dynamic-table
+    [pagination]="false"
+    [totalCount]="specialDaySlotCount"
+    [data]="specialDaySlots"
+    [columns]="columns"
+    (actionClicked)="onActionClicked($event)"
+  ></tt-dynamic-table>
+
+  <div fxLayout="column" fxLayoutAlign="center" class="row little-left top-gap">
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Choose a date"
+          [min]="today"
+          [(value)]="selectedDate"
+          (dateChange)="handleDateChange($event)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker [startAt]="selectedDate"></mat-datepicker>
+      </mat-form-field>
+      <!-- <span>Select AM/PM</span> -->
+      <mat-button-toggle-group
+        name="ampm"
+        aria-label="AM or PM"
+        [(value)]="selectedMeridian"
+        (change)="handleMeridianChange($event)"
+      >
+        <mat-button-toggle value="all" (click)="filterAllSlots()"
+          >All</mat-button-toggle
+        >
+        <mat-button-toggle value="am" (click)="filterAMSlots()"
+          >AM</mat-button-toggle
+        >
+        <mat-button-toggle value="pm" (click)="filterPMSlots()"
+          >PM</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+    <div fxLayout="row" fxLayoutGap="40px">
+      <div class="fill-half">
+        <mat-toolbar>
+          <span>Slots not availed</span>
+        </mat-toolbar>
+        <tt-dynamic-table
+          [pagination]="false"
+          [totalCount]="availableSlots.length"
+          [data]="availableSlots"
+          [columns]="columns2"
+          (actionClicked)="onActionClicked($event, weekday)"
+        ></tt-dynamic-table>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="start stretch" class="fill-half">
+        <div>
+          <mat-toolbar>
+            <span>Slots Published</span>
+          </mat-toolbar>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="publishedSlots.length"
+            [data]="publishedSlots"
+            [columns]="columns1"
+            (actionClicked)="onPublishedActionClicked($event, weekday)"
+          ></tt-dynamic-table>
+        </div>
+        <div>
+          <mat-toolbar>
+            <span>Slots Booked</span>
+          </mat-toolbar>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="bookedSlots.length"
+            [data]="bookedSlots"
+            [columns]="columns3"
+          ></tt-dynamic-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

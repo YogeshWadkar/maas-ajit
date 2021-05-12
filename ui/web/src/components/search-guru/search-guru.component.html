@@ -1,0 +1,169 @@
+<div>
+  <mat-toolbar>
+    <span>{{ title }}</span>
+    <span class="fill-remaining-space"></span>
+    <mat-form-field *ngIf="searchBy != 'byStatus'" class="long-width top-gap" floatLabel="never">
+      <input
+        type="search"
+        matInput
+        placeholder="Enter {{ getSearchByTxt() }}"
+        [(ngModel)]="searchTxt"
+        (ngModelChange)="applyFilter()"
+      />
+    </mat-form-field>
+    <!-- <mat-form-field *ngIf="searchBy == 'byStatus'" class="long-width"> -->
+    <mat-radio-group
+      *ngIf="searchBy == 'byStatus'"
+      aria-label="Select an option"
+      [(ngModel)]="active"
+      (ngModelChange)="applyFilter()"
+    >
+      <!-- <mat-radio-button value="all">All</mat-radio-button> -->
+      <mat-radio-button value="active">Active</mat-radio-button>
+      <mat-radio-button value="inactive">Inactive</mat-radio-button>
+    </mat-radio-group>
+    <!-- </mat-form-field> -->
+    <mat-form-field class="top-gap">
+      <mat-select
+        matNativeControl
+        required
+        [(value)]="searchBy"
+        (selectionChange)="applyFilter()"
+      >
+        <mat-option value="byName">By Name</mat-option>
+        <mat-option value="byLocation">By Location</mat-option>
+        <mat-option value="bySkills">By Skills</mat-option>
+        <mat-option
+          *ngIf="role == 'sponsor' || role == 'admin'"
+          value="byStatus"
+          >By Status</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <!-- <button mat-raised-button color="accent" (click)="applyFilter()">
+            <mat-icon>search</mat-icon>
+            Search
+        </button> -->
+    <button mat-raised-button color="accent" (click)="clearFilter()">
+      <mat-icon>clear_all</mat-icon>
+      Clear
+    </button>
+    <span class="fill-remaining-space"></span>
+    <button
+      *ngIf="role == 'admin'"
+      mat-raised-button
+      color="accent"
+      (click)="inviteMentors()"
+    >
+      <mat-icon>contact_mail</mat-icon>
+      Invite Mentors
+    </button>
+
+    <button
+      *ngIf="role == 'sponsor'"
+      mat-raised-button
+      color="accent"
+      (click)="importMentors()"
+    >
+      <mat-icon>publish</mat-icon>
+      Import From File
+    </button>
+  </mat-toolbar>
+
+  <div *ngIf="!loaded" class="loader-container">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="no-data" *ngIf="mentors.length == 0">
+    <img src="../../assets/images/no-data.png" />
+    <span>No matching data found!</span>
+  </div>
+
+  <mat-grid-list [cols]="columns" rowHeight="380px" >
+    <mat-grid-tile *ngFor="let mentor of mentors" >
+      <!-- <div fxLayout="column" fxLayoutGap="12px">
+            <div fxLaout="row"> -->
+      <mat-card>
+        <mat-card-content>
+          <img class="user-avatar" [src]="mentor.userDetail.avatarUrl" />
+          <!-- <div *ngIf="mentor.company"> -->
+          <mat-icon
+            *ngIf="mentor.company"
+            color="accent"
+            class="badge"
+            matTooltip="Sponsored mentor"
+            >bookmark</mat-icon
+          >
+          <!-- </div> -->
+          <mat-card-title class="clickable-title" (click)="viewProfile(mentor.id)">{{
+            mentor.firstName + " " + mentor.lastName
+              | tttextlengthnormalellipsis
+          }}</mat-card-title>
+          <mat-card-subtitle>Skills</mat-card-subtitle>
+          <p>
+            {{ getSkillsList(mentor.skillList) }}
+            <span
+              *ngIf="getSkillsList(mentor.skillList, true).length > STRLEN"
+              class="skill-info"
+              matTooltipPosition="right"
+              [matTooltip]="getSkillsList(mentor.skillList, true)"
+              >more</span
+            >
+          </p>
+          <mat-card-subtitle
+            >People Mentored: {{ mentor.peopleMentored }}</mat-card-subtitle
+          >
+          <tt-star-rating
+            [rating]="mentor.userDetail.avgRating"
+          ></tt-star-rating>
+          <div *ngIf="mentor.company" class="sponsorer">
+            <mat-icon color="accent">bookmark</mat-icon>
+            <span>{{ mentor.company.name }}</span>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            class="mat-button-full-width btn-mentor"
+            *ngIf="role == 'career-seeker'"
+            (click)="request(mentor.id)"
+            color="primary"
+          >
+            {{requestBtnLabel}}
+          </button>
+          <button
+            mat-raised-button
+            class="mat-button-full-width btn-mentor "
+            *ngIf="(role == 'sponsor' || role == 'admin') && mentor.isActive"
+            (click)="inactivateUser(mentor.id)"
+            color="primary"
+          >
+            Mark as In-active
+          </button>
+          <button
+            mat-raised-button
+            class="mat-button-full-width"
+            *ngIf="(role == 'sponsor' || role == 'admin') && !mentor.isActive"
+            (click)="activateUser(mentor.id)"
+            color="primary"
+          >
+            Mark as Active
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <!-- </div>
+        </div> -->
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-paginator  class="paginator" 
+    (pageChanged)="onPageChanged($event)"
+    [pageSize]="pageSize"
+    [length]="length"
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+

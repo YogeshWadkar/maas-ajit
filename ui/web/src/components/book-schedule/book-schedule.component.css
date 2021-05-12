@@ -1,0 +1,272 @@
+table {
+  width: 100%;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+      Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-right: 0px !important;
+}
+
+.mat-list-base .mat-list-item {
+  margin-bottom: 12px !important;
+}
+
+.ampm {
+  margin-bottom: -10px;
+}
+
+.mat-grid-tile .mat-figure {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65% !important;
+  padding: 0;
+  margin: 0;
+}
+
+.am {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  margin-left: 75px;
+}
+
+.pm {
+  margin-right: 95px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
+
+.mycard {
+  text-align: center;
+  background-color: #eee;
+  font-size: 15px;
+  border: 1px solid #b7b4b4;
+}
+
+.mat-card {
+  padding: 13px;
+  border-radius: 3px;
+}
+
+.mat-card:not {
+  box-shadow: 0px;
+}
+
+/* .mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 0px 0 rgba(0,0,0,.12);
+} */
+.center-text {
+  text-align: center;
+}
+
+.al {
+  top: 6px;
+  position: relative;
+}
+
+/* mat-grid-tile mat-card {
+  width: 77%;
+} */
+
+.column1 {
+  width: 350px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.column2 {
+  width: 450px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.column3 {
+  width: 600px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.tb-label {
+  font-weight: 100;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.calendar-wrapper {
+  width: 400px;
+  text-align: center;
+}
+
+/* card styles css */
+.mat-grid-list {
+  margin-top: -18px;
+  display: block;
+  position: relative;
+}
+
+.mat-card-image {
+  border-radius: 55px;
+  width: 110px;
+  height: 110px;
+  margin-left: 100px;
+  margin-top: -40px;
+}
+
+mat-card {
+  margin: 3px;
+  width: 100%;
+  /* height: 90%; */
+}
+
+.mat-card-actions {
+  margin: 0px 10px;
+}
+
+.sp {
+  color: #f06b4e;
+  font-weight: 500;
+  font-size: initial;
+}
+
+.m1 {
+  position: relative;
+  color: darkgray;
+  top: 6px;
+}
+
+.im1 {
+  background-color: #f06b4e;
+  border-radius: 25px;
+  margin-left: 32px;
+}
+
+.im {
+  background-color: #f06b4e;
+  border-radius: 25px;
+}
+
+#matimge {
+  margin-bottom: 12px;
+  margin-top: -10px;
+}
+
+#p1 {
+  text-align: justify;
+  word-spacing: 2px;
+}
+
+/* mat-card button {
+  bottom: -20px;
+} */
+
+::ng-deep tt-search-guru mat-grid-tile.mat-grid-tile .mat-figure {
+  align-items: initial;
+  /*vertical alignment*/
+}
+
+mat-grid-tile mat-card:hover {
+  /* background-color: #fbe9e7; */
+  cursor: pointer;
+}
+
+mat-radio-group {
+  margin-right: 10px;
+}
+
+mat-radio-group>mat-radio-button {
+  margin-right: 10px;
+}
+
+mat-toolbar>mat-form-field,
+mat-toolbar>button {
+  margin-right: 10px;
+}
+
+.user-avatar {
+  width: 150px;
+  height: 150px;
+}
+
+mat-card-content img {
+  border-radius: 75px;
+  margin-bottom: 12px;
+}
+
+.no-data img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.no-data {
+  text-align: center;
+}
+
+.mat-card-content {
+  text-align: center;
+}
+
+.sponsorer {
+  margin-top: 4px;
+}
+
+.sponsorer,
+.sponsorer mat-icon {
+  font-size: 12px;
+  color: #544766;
+}
+
+.badge {
+  left: -8px;
+  top: -5px;
+  padding: 0px;
+  position: absolute;
+  font-size: 3em;
+  color: #544766;
+}
+.skill-info {
+  /* float: right;
+  position: relative;
+  right: 59px;
+  bottom: 3px; */
+  color: #544766;
+  text-decoration: underline;
+}
+.pms {
+  position: relative;
+  margin-left: 250px;
+}
+
+.profile-card {
+  /* width: 200px; */
+  box-shadow: none;
+}
+
+.clickable-title:hover {
+  color: #f06b4e;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.timeslot {
+  width: 240px;
+  height: 50px;
+}

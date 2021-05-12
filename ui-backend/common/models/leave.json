@@ -1,0 +1,28 @@
+{
+  "name": "Leave",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "detail": {
+      "type": "string",
+      "required": true
+    },
+    "isHoliday": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

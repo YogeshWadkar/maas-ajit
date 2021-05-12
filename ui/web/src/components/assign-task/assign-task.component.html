@@ -1,0 +1,28 @@
+<div>
+  <mat-toolbar>
+    <span>Manage Task - {{ user.firstName }} {{ user.lastName }}</span>
+
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="primary" (click)="addTask()">
+      <mat-icon>add</mat-icon>
+      Add
+    </button>
+    <span style="margin-left:10px;"></span>
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="/mentor/review-meetings"
+    >
+      <mat-icon>chevron_left</mat-icon>
+      Back
+    </button>
+  </mat-toolbar>
+
+  <tt-dynamic-table
+    [totalCount]="totalCount"
+    [data]="tasks"
+    [columns]="columns"
+    (actionClicked)="onActionClicked($event)"
+    (pageChanged)="onPageChanged($event)"
+  ></tt-dynamic-table>
+</div>

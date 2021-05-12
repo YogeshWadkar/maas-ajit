@@ -1,0 +1,44 @@
+{
+  "name": "SelfAssessment",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "comment": {
+      "type": "string",
+      "required": false
+    },
+    "level": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "skill": {
+      "type": "belongsTo",
+      "model": "Skill",
+      "foreignKey": ""
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "SkillCategory",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "profile": {
+      "type": "belongsTo",
+      "model": "CareerProfile",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

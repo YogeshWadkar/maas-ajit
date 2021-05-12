@@ -1,0 +1,20 @@
+<mat-carousel
+  timings="0ms"
+  [autoplay]="true"
+  interval="3000"
+  color="accent"
+  maxWidth="auto"
+  proportion="350"
+  slides="slides.length"
+  [loop]="true"
+  orientation="ltr"
+>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    [hideOverlay]="true"
+  >
+  <button class="enrol-btn" mat-flat-button color="primary" (click)="enrol(slide)">JOIN</button>
+</mat-carousel-slide>
+</mat-carousel>

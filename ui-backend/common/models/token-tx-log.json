@@ -1,0 +1,33 @@
+{
+  "name": "TokenTransferLog",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "result": {
+      "type": "object",
+      "required": false
+    },
+    "resultType": {
+      "type": "string",
+      "required": false
+    },
+    "numTokens": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fromUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "toUser": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

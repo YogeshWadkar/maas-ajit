@@ -1,0 +1,3 @@
+<div *ngFor="let ctx of chatDialogs; let i = index" class="chat-dlg-container">
+    <tt-chat-dialog [ngStyle]="{'left.px': lPosition(i, chatDialogs.length)}" class="chat-dialog" *ngIf="i > chatDialogs.length - 5" [ctx]="ctx" [highlight]="ctx.highlight" [readOnly]="ctx.readOnly" (close)="onClose($event)"></tt-chat-dialog>
+</div>

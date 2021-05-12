@@ -1,0 +1,21 @@
+{
+    "name": "CareerProfileSkill",
+    "base": "TTBasePersistedModel",
+    "properties": {
+    },
+    "validations": [],
+    "relations": {
+      "skill": {
+        "type": "belongsTo",
+        "model": "Skill",
+        "foreignKey": ""
+      },
+      "profile": {
+        "type": "belongsTo",
+        "model": "CareerProfile",
+        "foreignKey": ""
+      }
+    },
+    "acls": [],
+    "methods": {}
+}

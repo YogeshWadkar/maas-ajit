@@ -1,0 +1,9 @@
+.buble_bg .msgbx,
+.loadframe [themeid="9"] header:after,
+.siqc_edt,
+.win_close,
+[themeid="10"] header:after,
+header {
+  background-image: none;
+  background-color: orangered;
+}

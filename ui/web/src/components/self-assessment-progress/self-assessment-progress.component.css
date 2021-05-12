@@ -1,0 +1,761 @@
+.step1 {
+  margin-bottom: 25px;
+  margin-top: 45px;
+  margin-left: 0px;
+  color: #ffffff;
+  background-color: #f06b4d;
+  border-style: double;
+}
+
+.step1-box {
+  background-color: #f06b4d;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  border: 3px solid #fff;
+}
+
+.small1 {
+  font-size: 21px !important;
+  position: relative;
+  top: 15px;
+  text-transform: uppercase;
+}
+
+.one {
+  margin-top: 8px;
+  font-size: 35px;
+}
+
+.jobhead {
+  margin-left: -441px !important;
+}
+
+.circle {
+  height: 68px;
+  color: #f06b4d;
+  width: 70px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10px !important;
+  /* font-size: 34px; */
+}
+
+.slevel1 {
+  margin-bottom: 35px;
+}
+
+.text1 {
+  font-weight: 500;
+  margin-top: 23px;
+  font-size: 14px;
+}
+
+/* row styles */
+.userrows {
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.userrows::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 8px;
+}
+
+.userrows::-webkit-scrollbar-thumb {
+  background-color: #f06b4d;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+/* end */
+
+.stepflow1 {
+  margin-left: 13px;
+}
+
+.skillbox {
+  border: 2px solid #f06b4d;
+  border-style: dotted;
+  padding: 10px;
+  width: 140px;
+  height: 145px;
+}
+
+.user1 {
+  border-bottom: 2px solid #f06b4d;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -40px;
+  margin-left: -10px;
+}
+
+.nonuser1 {
+  border-bottom: 2px solid #f06b4d;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -14px;
+  margin-left: -10px;
+  margin-bottom: 4px;
+}
+
+.mentorimg {
+  width: 60px;
+  margin-top: 5px;
+  height: 60px;
+  border-radius: 100%;
+  margin-left: 0px;
+}
+
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #f06b4d;
+  border-right: 38px solid transparent;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.check1 {
+  margin-top: -40px;
+  position: absolute;
+  color: #ffff;
+  font-size: 24px;
+}
+
+.assses-text {
+  color: #f06b4d;
+  margin-top: -22px;
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.selficon {
+  font-size: 35px;
+  color: #f06b4d;
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+.nonselficon {
+  font-size: 35px;
+  color: #f06b4d;
+  margin-top: 5px;
+  margin-left: -15px;
+}
+
+.mentername1 {
+  color: #f06b4d;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 0px;
+  text-align: center;
+}
+
+.job1 {
+  margin-left: 113px;
+  font-size: 16px;
+  margin-top: -12px;
+}
+
+.job2 {
+  margin-left: 138px;
+  margin-top: -13px;
+}
+
+.job3 {
+  margin-left: 138px;
+  margin-top: -13px;
+}
+
+.totaljob {
+  margin-left: 108px;
+  margin-top: -15px;
+}
+
+.level1chart {
+  width: 305px !important;
+  height: 175px !important;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.totalchart {
+  margin-top: 20px;
+}
+
+.level2chart {
+  width: 305px !important;
+  height: 175px !important;
+  margin-left: 40px;
+  margin-top: -20px;
+}
+
+.level3chart {
+  width: 305px !important;
+  height: 175px !important;
+  margin-left: 40px;
+  margin-top: 10px;
+  /* margin-left: -550px; */
+}
+
+/*---------- step-2 ----------*/
+
+.slevel2 {
+  margin-bottom: 35px;
+}
+
+.step2 {
+  margin-bottom: 25px;
+  color: #ffffff;
+  background-color: #00a35a;
+  border-style: double;
+  margin-right: -202px;
+}
+
+.step2-box {
+  background-color: #00a35a;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  border: 3px solid #fff;
+}
+
+.two {
+  margin-top: 8px;
+  font-size: 35px;
+  color: #00a35a;
+}
+
+.progress2 {
+  margin-left: 410px;
+  margin-top: -20px;
+}
+
+.jobhead2 {
+  margin-left: -15px !important;
+}
+
+.stepflow2 {
+  margin-left: 75px;
+  margin-right: 3px;
+}
+
+.skillbox2 {
+  border: 2px solid #00a35a;
+  border-style: dotted;
+  padding: 10px;
+  width: 140px;
+  height: 145px;
+}
+
+.user2 {
+  border-bottom: 2px solid #00a35a;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -40px;
+  margin-left: -10px;
+}
+
+.nonuser2 {
+  border-bottom: 2px solid #00a35a;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -14px;
+  margin-left: -10px;
+  margin-bottom: 4px;
+}
+
+.triangle-topleft2 {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #2f8a40;
+  border-right: 38px solid transparent;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.check2 {
+  margin-top: -40px;
+  position: absolute;
+  color: #ffff;
+  font-size: 24px;
+}
+
+.assses-text2 {
+  color: #2f8a40;
+  margin-top: -22px;
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.selficon2 {
+  font-size: 40px;
+  color: #2f8a40;
+  margin-top: 5px;
+}
+
+.nonselficon2 {
+  font-size: 40px;
+  color: #2f8a40;
+  margin-top: 5px;
+  margin-left: -15px;
+}
+
+.mentername2 {
+  color: #2f8a40;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 0px;
+  text-align: center;
+}
+
+canvas.level1 {
+  width: 350px !important;
+  height: 165px !important;
+  margin-top: 20px !important;
+  margin-bottom: -8px;
+}
+
+.item-1 {
+  margin-right: 100px;
+  margin-left: -148px;
+}
+
+.user {
+  border: 2px solid #f06b4d;
+  border-style: dashed;
+  padding: 5px;
+  width: 140px;
+  height: 90px;
+}
+
+.user-img {
+  width: 130px;
+  height: 100px;
+}
+
+.selficon2 {
+  font-size: 40px;
+  color: #2f8a40;
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+.user-img2 {
+  width: 140px;
+  height: 100px;
+  text-align: center;
+  margin-left: 24px;
+}
+
+canvas.level2 {
+  width: 350px !important;
+  height: 165px !important;
+  margin-top: 20px !important;
+  margin-left: 122px;
+  margin-bottom: -8px;
+}
+
+.userrows2 {
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.userrows2::-webkit-scrollbar-thumb {
+  background-color: #2f8a40;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+/*------------------- step -3------------------- */
+
+.step3 {
+  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-left: -375px;
+  color: #ffffff;
+  background-color: #089eda;
+  border-style: double;
+}
+
+.step3-box {
+  background-color: #089eda;
+  width: 125px;
+  height: 125px;
+  margin: 10px;
+  border: 3px solid #fff;
+}
+
+.small1 {
+  font-size: 21px !important;
+  position: relative;
+  top: 15px;
+  text-transform: uppercase;
+}
+
+.three {
+  margin-top: 10px;
+  font-size: 40px;
+  color: #089eda;
+}
+
+.jobhead {
+  margin-left: -441px !important;
+}
+
+.circle {
+  height: 55px;
+  width: 55px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10px !important;
+  /* font-size: 34px; */
+}
+
+.slevel3 {
+  margin-bottom: 35px;
+  margin-top: -20px !important;
+}
+
+.text1 {
+  font-weight: 500;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+/* row styles */
+.userrows {
+  padding: 10px;
+  margin-right: 30px;
+  display: flex;
+  overflow-x: auto;
+  position: relative;
+}
+
+.stepflow3 {
+  margin-left: 13px;
+}
+
+.skillbox3 {
+  border: 2px solid#089eda;
+  border-style: dotted;
+  padding: 10px;
+  width: 140px;
+  height: 145px;
+}
+
+.user3 {
+  border-bottom: 2px solid #089eda;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -40px;
+  margin-left: -10px;
+}
+
+.nonuser3 {
+  border-bottom: 2px solid #089eda;
+  border-bottom-style: dotted;
+  padding: 5px;
+  width: 148px;
+  height: 62px;
+  margin-top: -14px;
+  margin-left: -10px;
+  margin-bottom: 4px;
+}
+
+.triangle-topleft3 {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #089eda;
+  border-right: 38px solid transparent;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.check3 {
+  margin-top: -40px;
+  position: absolute;
+  color: #ffff;
+  font-size: 24px;
+}
+
+.assses-text3 {
+  color: #089eda;
+  margin-top: -22px;
+  margin-left: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.selficon3 {
+  font-size: 40px;
+  color: #089eda;
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+.nonselficon3 {
+  font-size: 40px;
+  color: #089eda;
+  margin-top: 5px;
+  margin-left: -15px;
+}
+
+.mentername3 {
+  color: #089eda;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 0px;
+  text-align: center;
+}
+
+canvas.level3 {
+  width: 350px !important;
+  height: 165px !important;
+  margin-top: 20px !important;
+  margin-bottom: -8px;
+}
+
+.userrows3 {
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 8px;
+}
+
+.userrows3::-webkit-scrollbar-thumb {
+  background-color: #089eda;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+/*-------------------------------------------------------------------------- */
+
+.heading-text {
+  font-size: 2.4em;
+}
+
+.no-data img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.no-data {
+  text-align: center;
+}
+
+/* other styles */
+
+.margin {
+  margin: 25px;
+}
+
+.multi-graph {
+  width: 300px;
+  height: 150px;
+  position: relative;
+  color: black !important;
+  font-size: 18px;
+  font-weight: 520;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: end;
+  align-items: flex-end;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.multi-graph:before {
+  content: "";
+  width: 300px;
+  height: 150px;
+  border: 50px solid rgba(0, 0, 0, 0.15);
+  border-bottom: none;
+  position: absolute;
+  box-sizing: border-box;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  border-radius: 300px 300px 0 0;
+  left: 0;
+  top: 0;
+}
+
+.multi-graph .graph {
+  width: 300px;
+  height: 150px;
+  border: 50px solid var(--fill);
+  border-top: none;
+  position: absolute;
+  -webkit-transform-origin: 50% 0% 0;
+  transform-origin: 50% 0% 0;
+  border-radius: 0 0 300px 300px;
+  left: 0;
+  top: 100%;
+  z-index: 5;
+  -webkit-animation: 1s fillGraphAnimation ease-in;
+  animation: 1s fillGraphAnimation ease-in;
+  -webkit-transform: rotate(calc(1deg * (var(--percentage) * 1.8)));
+  transform: rotate(calc(1deg * (var(--percentage) * 1.8)));
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.multi-graph .graph:after {
+  content: attr(data-name) " " counter(varible) "%";
+  counter-reset: varible var(--percentage);
+  background: var(--fill);
+  box-sizing: border-box;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 200;
+  font-size: 12px;
+  height: 20px;
+  padding: 3px 5px;
+  top: 0px;
+  position: absolute;
+  left: 0;
+  -webkit-transform: rotate(calc(-1deg * var(--percentage) * 1.8))
+    translate(-30px, 0px);
+  transform: rotate(calc(-1deg * var(--percentage) * 1.8)) translate(-30px, 0px);
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+  -webkit-transform-origin: 0 50% 0;
+  transform-origin: 0 50% 0;
+  opacity: 0;
+}
+
+.multi-graph .graph:hover {
+  opacity: 0.8;
+}
+
+.multi-graph .graph:hover:after {
+  opacity: 1;
+  left: 30px;
+}
+
+@-webkit-keyframes fillAnimation {
+  0% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes fillAnimation {
+  0% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+}
+
+@-webkit-keyframes fillGraphAnimation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes fillGraphAnimation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}

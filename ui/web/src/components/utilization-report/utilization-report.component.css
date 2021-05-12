@@ -1,0 +1,11 @@
+tt-dynamic-table {
+  width: 60%;
+}
+
+mat-card {
+  width: 40%;
+}
+
+mat-toolbar mat-form-field {
+  margin-right: 10px;
+}

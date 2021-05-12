@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+.fill-half {
+  width: 50%;
+}
+
+.little-left {
+  margin-left: 10px;
+}
+
+.top-gap {
+  margin-top: 12px;
+}

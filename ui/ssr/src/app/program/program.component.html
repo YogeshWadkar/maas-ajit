@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start">
+  <div fxLayout="column" fxLayoutAlign="start stretch" class="left-panel mat-elevate-z6">
+      <div
+      class="large-text orange"
+      fxLayout="row"
+      fxLayoutGap="40px"
+      fxLayoutAlign="start stretch"
+      >
+      {{program.name}}
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch">
+          <img width="600px" height="400px" [src]="program.imgPath" />
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch" class="description">
+          {{program.description}}
+      </div>
+  </div>
+    
+  <div fxLayout="column" fxLayoutAlign="center stretch" class="row right-panel">
+
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+      <img width="140px" height="100px" src="../../assets/images/Artboard_22.png" />
+    </div>
+
+    <div
+      class="heading-text"
+      fxLayout="row"
+      fxLayoutGap="40px"
+      fxLayoutAlign="center stretch"
+    >
+      Join MaaS to enroll into {{program.name}}.
+      <br>
+      It is free!
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutGap="40px"
+      fxLayoutAlign="center stretch"
+      class="about-txt"
+    >
+      As a MaaS member, you'll network with career seekers, mentors and sponsoring organizations.
+    </div>
+    <div
+      fxLayout="row"
+      fxLayoutGap="40px"
+      fxLayoutAlign="center stretch"
+    >
+      <button mat-raised-button class="signup-btn" color="primary" (click)="signup()">Sign Up</button>
+    </div>
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+      <p>
+        Already have account? <a [href]="signinUrl">Sign In</a>
+      </p>
+    </div>
+  </div>
+</div>

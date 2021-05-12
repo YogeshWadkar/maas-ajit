@@ -1,0 +1,55 @@
+/* social sharing css */
+.socialimg
+{
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+}
+.moreimg
+{
+  cursor: pointer;
+  width: 46px;
+  height: 45px;
+}
+.socialimg1
+{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+.insta
+{
+  position: relative;
+  margin-left: -70px !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 230px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 99999;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+/* end of the part */
+
+.copy-link:hover {
+  cursor: pointer;
+}

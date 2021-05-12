@@ -1,0 +1,28 @@
+img.skill-icon {
+  width: 80px;
+}
+
+.profile-icon {
+  width: 100px;
+}
+
+.profile-detail {
+  margin-bottom: 24px;
+  margin-left: 120px;
+}
+
+.profile-img {
+  float: left;
+}
+
+mat-card-content {
+  text-align: center;
+}
+
+.profile-desc {
+  margin-top: 12px;
+}
+
+mat-card {
+  /* background-color: #fbe9e7; */
+}

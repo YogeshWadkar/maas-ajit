@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MaaS</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.545.0.min.js"></script>
+  </head>
+
+  <body mat-app-background>
+    <app-root></app-root>
+    <footer>
+      <p class="footer-left-text">
+        &#169;2020 MaaS. All rights reserved.
+        <span class="footer-right-text"
+          >A unit of TalTech Outreach Services Pvt Ltd.</span
+        >
+      </p>
+    </footer>
+  </body>
+  <script type="text/javascript" src="https://js.freebusy.io/pick-a-time/v1"></script>
+  <script type="text/javascript">
+    var $zoho = $zoho || {};
+    $zoho.salesiq = $zoho.salesiq || {
+      widgetcode:
+        "f5e0f79e93e3233447e358bf014499daf9d5282c50aa8fa1c5da16c1ce8da6ecb4fe400fc84dc2491c92f9a6da4b9f4d",
+      values: {},
+      ready: function() {}
+    };
+    var d = document;
+    s = d.createElement("script");
+    s.type = "text/javascript";
+    s.id = "zsiqscript";
+    s.defer = true;
+    s.src = "https://salesiq.zoho.com/widget";
+    t = d.getElementsByTagName("script")[0];
+    t.parentNode.insertBefore(s, t);
+    d.write("<div id='zsiqwidget'></div>");
+  </script>
+</html>

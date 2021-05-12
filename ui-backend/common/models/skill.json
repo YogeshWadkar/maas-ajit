@@ -1,0 +1,24 @@
+{
+  "name": "Skill",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "iconUrl": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "SkillCategory",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

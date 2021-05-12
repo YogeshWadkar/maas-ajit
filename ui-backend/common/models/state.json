@@ -1,0 +1,28 @@
+{
+  "name": "State",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "importId": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "country": {
+      "type": "belongsTo",
+      "model": "Country",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

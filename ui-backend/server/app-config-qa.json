@@ -1,0 +1,19 @@
+{
+  "zoomApiKey": "FnGgbRddQcm8o4HVDlRzMg",
+  "zoomApiSecret": "A7N3KFkxGY1UHl9XNagrDPv2dDi8vzz9hpsP",
+  "zoomApiBaseUrl": "https://api.zoom.us/v2",
+  "zoomAdminEmail": "rv@taltechos.com",
+  "zoomAdminUserId": "un5aEnuvSsCcKjmk9D5V9A",
+  "zoomWebhookVerificationToken": "M0Z6t6dlq8jGI9RHJn82",
+
+  "awsAccessKeyId": "AKIAZFPG5ENVMLXF4XXS",
+  "awsSecretAccessKey": "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",
+  "awsRegion": "us-east-2",
+  "awsSQSUrl": "https://sqs.us-east-2.amazonaws.com/630233834346",
+  "awsSQSEnv": "qc",
+
+  "socketUrl": "http://34.93.138.253:3000",
+  
+  "programSsr": "http://34.93.138.253:4000/program?pid=",
+  "profileSsr": "http://34.93.138.253:4000/profile?uid="
+}

@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+tt-sponsor-dashboard .mat-grid-tile .mat-figure,
+tt-admin-dashboard .mat-grid-tile .mat-figure,
+tt-ig-dashboard .mat-grid-tile .mat-figure,
+tt-career-seeker-dashboard .mat-grid-tile .mat-figure,
+tt-enrol-dialog  .mat-grid-tile .mat-figure {
+  justify-content: flex-start !important ;
+  align-items: flex-start !important;
+}
+
+.zsiq_theme1 .zsiq_flt_rel {
+  background-color: #f06b4e !important;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  display: block;
+}
+
+.footer-left-text {
+  color: white;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.footer-right-text {
+  float: right;
+  color: gray;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.orange-text {
+  color: #f06b4e;
+}
+
+a {
+  color: #f06b4e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+        Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.mat-button-full-width {
+  /*This class will help mat button to occupy width available within Rect*/
+  width: 100%;
+}
+
+.top-gap {
+  margin-top: 14px;
+}
+
+tt-edit-profile tt-star-rating .mat-icon {
+  font-size: 3em;
+  width: 48px;
+}
+
+tt-form-dialog mat-form-field {
+  width: 100%;
+}
+
+tt-viewonly-profile tt-star-rating .mat-icon {
+  font-size: 3em;
+  width: 48px;
+}
+
+tt-edit-profile mat-tab-body tt-star-rating .mat-icon {
+  font-size: 1.8em;
+  width: 24px;
+}
+
+tt-sponsor-dashboard tt-dynamic-table tt-star-rating .mat-icon {
+  font-size: 1.2em;
+  width: 16px;
+}

@@ -1,0 +1,120 @@
+<div>
+  <mat-toolbar>
+    <span
+      >Book Schedule with {{ mentorUser.firstName }}
+      {{ mentorUser.lastName }}</span
+    >
+    <span class="fill-remaining-space"></span>
+    <!-- <button mat-raised-button color="accent" [routerLink]="backLink"> -->
+    <button mat-raised-button color="accent" (click)=" backClicked()">
+      <mat-icon>chevron_left</mat-icon>
+      Back
+    </button>
+  </mat-toolbar>
+</div>
+
+<!-- new functionality  -->
+<div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+  <div fxLayout="row" fxLayoutGap="">
+    <div class="column1">
+      <mat-card class="profile-card">
+        <ng-container *ngFor="let mentor of mentors">
+          <ng-container *ngIf="mentor.id == selectedId">
+            <mat-card-content (click)="viewProfile(mentor.id)">
+              <img class="user-avatar" [src]="mentor.userDetail.avatarUrl" />
+              <mat-icon
+                *ngIf="mentor.company"
+                color="accent"
+                class="badge"
+                matTooltip="Sponsored mentor"
+                >bookmark</mat-icon
+              >
+              <mat-card-title class="clickable-title"
+                >{{ mentor.firstName }} {{ mentor.lastName }}</mat-card-title
+              >
+              <mat-card-subtitle>Skills</mat-card-subtitle>
+              <p>
+                {{ getSkillsList(mentor.skillList) }}
+                <span
+                  *ngIf="getSkillsList(mentor.skillList, true).length > STRLEN"
+                  class="skill-info"
+                  matTooltipPosition="right"
+                  [matTooltip]="getSkillsList(mentor.skillList, true)"
+                  >more</span
+                >
+              </p>
+              <mat-card-subtitle
+                >People Mentored: {{ mentor.peopleMentored }}</mat-card-subtitle
+              >
+
+              <tt-star-rating
+                [rating]="mentor.userDetail.avgRating"
+              ></tt-star-rating>
+              <div *ngIf="mentor.company" class="sponsorer">
+                <mat-icon color="accent">bookmark</mat-icon>
+                <span>{{ mentor.company.name }}</span>
+              </div>
+            </mat-card-content>
+          </ng-container>
+        </ng-container>
+      </mat-card>
+    </div>
+    <!-- <mat-divider vertical="true"></mat-divider> -->
+    <div class="column2">
+      <div class="calendar-wrapper">
+        <mat-card>
+          <mat-calendar
+            [selected]="selectedDate"
+            (selectedChange)="onSelect($event)"
+            [minDate]="minDate"
+          ></mat-calendar>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="column3">
+      <div class="mat-body-2 center-text">
+        Duration : {{ duration }} minutes
+      </div>
+
+      <div class="mat-body-1 center-text">
+        <mat-icon class="al">alarm_on</mat-icon> Available starting time for
+        <span class="mat-body-2"> {{ current | date: datepipe }} </span>
+      </div>
+      <!-- <div fxLayout="row" fxLayoutGap="" class="ampm">
+        <div class="mat-body-2 am">AM</div>
+        <span class="fill-remaining-space"></span>
+        <div class="mat-body-2 pm">PM</div>
+      </div> -->
+
+      <div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+        <div fxLayout="row" fxLayoutGap="260px">
+          <div class="column2">
+            <mat-list>
+              <h3 mat-subheader>AM</h3>
+              <mat-list-item *ngFor="let data of availableSlotsAM; index as i">
+                <button mat-stroked-button color="primary" class="timeslot" (click)="onActionableClicked(data)">{{ data.fromTm | tttimeformat }}</button>
+              </mat-list-item>
+            </mat-list>
+          </div>
+          <div class="column2">
+            <mat-list>
+                <h3 mat-subheader>PM</h3>
+                <mat-list-item *ngFor="let data of availableSlotsPM; index as i">
+                  <button mat-stroked-button class="timeslot" color="primary" (click)="onActionableClicked(data)">{{ data.fromTm | tttimeformat }}</button>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+
+      <div hidden="true" id="freebusy-pickatime-button" (click)="openFreeBusy($event)"></div>
+      <div id="how-others-will-see"></div>
+
+      <div class="no-data" *ngIf="availableSlots.length == 0">
+        <img src="../../assets/images/no-data.png" />
+        <span>No matching data found!</span>
+      </div>
+    </div>
+  </div>
+</div>

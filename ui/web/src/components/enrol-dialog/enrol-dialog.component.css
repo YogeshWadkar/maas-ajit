@@ -1,0 +1,36 @@
+.promo-img {
+    width: 90%;
+    padding: 12px;
+}
+
+.promo-title {
+    font-size: 2.4em;
+    color: #f06b4e;
+    font-weight: 500;
+    padding: 12px;
+}
+
+.left-panel {
+    width: 60%;
+}
+
+.right-panel {
+    width: 40%;
+}
+
+.right-panel mat-toolbar {
+    margin-bottom: 24px;
+}
+
+.full-width {
+    width: 100%;
+    padding-left: 100px;
+}
+
+.right-panel tt-request-input-form {
+    width: 100%;
+}
+
+.description {
+    line-height: 24px;
+}

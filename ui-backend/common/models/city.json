@@ -1,0 +1,28 @@
+{
+  "name": "City",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "importId": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "state": {
+      "type": "belongsTo",
+      "model": "State",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,76 @@
+<mat-toolbar>
+  <span>{{ title }}</span>
+  <span class="fill-remaining-space"></span>
+  <mat-form-field>
+    <mat-select
+      [(value)]="dateRange"
+      (selectionChange)="onSelectionChange($event.value)"
+    >
+      <mat-option value="7days">Last 7 Days</mat-option>
+      <mat-option value="2weeks">Last 2 Weeks</mat-option>
+      <mat-option value="1month">Last 1 Month</mat-option>
+      <mat-option value="6months">Last 6 Months</mat-option>
+      <mat-option value="12months">Last 12 Months</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select
+      [(value)]="selectedMentor"
+      (selectionChange)="onSelectionChange()"
+    >
+      <mat-option value="all">All</mat-option>
+      <mat-option *ngFor="let mentor of mentors" [value]="mentor.id"
+        >{{ mentor.firstName }} {{ mentor.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <span class="fill-remaining-space"></span>
+  <!-- <button mat-raised-button color="accent">
+        <mat-icon>get_app</mat-icon>
+        Download Report
+    </button> -->
+</mat-toolbar>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start stretch">
+  <tt-dynamic-table
+    [data]="data"
+    [totalCount]="data.length"
+    [columns]="columns[dateRange]"
+    (actionClicked)="onActionClicked($event)"
+    (actionableClicked)="onActionableClicked($event)"
+  ></tt-dynamic-table>
+  <div fxLayout="column" fxLayoutGap="12px" fxLayoutAlign="start stretch">
+    <div
+      style="width:100%;"
+      fxLayout="row"
+      fxLayoutGap="12px"
+      fxLayoutAlign="start stretch"
+    >
+      <mat-card style="width:50%;background-color:#524766;color:#f06b4e;">
+        <mat-card-title>Total Hours</mat-card-title>
+        <mat-card-subtitle style="color: #f06b4e"
+          >In {{ dateRangeTxt[dateRange] }}</mat-card-subtitle
+        >
+        <mat-card-content style="font-size:3em;font-weight:200;">
+          {{ totalHours }}
+        </mat-card-content>
+      </mat-card>
+      <mat-card style="width:50%;background-color:  #f06b4e;color:#ffffff;">
+        <mat-card-title>Mentors Registered</mat-card-title>
+        <mat-card-subtitle style="color: #ffffff"
+          >In {{ dateRangeTxt[dateRange] }}</mat-card-subtitle
+        >
+        <mat-card-content style="font-size:3em;font-weight:200;">
+          {{ totalMentors }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <mat-card>
+      <mat-card-title>Hours Contributed</mat-card-title>
+      <mat-card-subtitle>In {{ dateRangeTxt[dateRange] }}</mat-card-subtitle>
+      <mat-card-content>
+        <canvas id="availabilityVsAllocationChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

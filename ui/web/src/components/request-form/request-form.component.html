@@ -1,0 +1,468 @@
+<h1 mat-dialog-title>
+  {{ data.title }}
+</h1>
+<div>
+  <mat-dialog-content>
+    <div fxLayout="column" fxLayoutAlign="start stretch" class="row">
+      <!-- <div *ngIf="model && !report" class="padding20 white-bg"> -->
+      <div class="row" fxLayout="row" fxLayoutAlign="start stretch">
+        <div class="col-4 scrollbar" *ngIf="!data.readOnly">
+          <!--a draggable element -->
+          <div class="fields" *ngFor="let item of fieldModels">
+            <div
+              [ngClass]="{ field: true, pointer: true, 'shadow-bg': true }"
+              [dndDraggable]="item"
+              [dndEffectAllowed]="'copy'"
+              (dndEnd)="onDragEnd($event)"
+            >
+              <i [ngClass]="item.icon" class="fa pull-left"></i>
+              <h5 class="sidetext">{{ item.label }}</h5>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="{ 'col-8': !data.readOnly, 'col-12': data.readOnly }">
+          <mat-card class="">
+            <div class="userstyle dragpart">
+              <div
+                class="appname"
+                [style.backgroundColor]="model.theme.bgColor"
+                [style.color]="model.theme.textColor"
+              >
+                <!-- <input class="form-control formname" type="text" [(ngModel)]="model.name"
+                  placeholder="Enter Form Name" [disabled]="data.readOnly"/> -->
+                <mat-form-field class="formfield">
+                  <input
+                    matInput
+                    class="formname"
+                    type="text"
+                    [(ngModel)]="model.name"
+                    placeholder="Enter Form Name"
+                    [disabled]="data.readOnly"
+                  />
+                </mat-form-field>
+              </div>
+
+              <!--a dropzone-->
+              <!--to allow dropping content that is not [dndDraggable] set dndAllowExternal to true-->
+              <div class="">
+                <section
+                  dndDropzone
+                  (dndDragover)="onDragover($event)"
+                  (dndDrop)="onDrop($event, model.attributes)"
+                  class="dndDropArea "
+                  [ngClass]="{ empty: model.attributes.length == 0 }"
+                  [style.backgroundColor]="model.theme.bgColor"
+                  [style.color]="model.theme.textColor"
+                >
+                  <div
+                    [ngClass]="{
+                      field: !data.readOnly,
+                      'read-only-field': data.readOnly
+                    }"
+                    *ngFor="let item of model.attributes; let i = index"
+                    (dndStart)="onDragStart($event)"
+                    (dndCanceled)="onDragCanceled($event)"
+                    (dndMoved)="onDragged(item, model.attributes, 'move')"
+                    [dndEffectAllowed]="'all'"
+                    [dndDraggable]="item"
+                  >
+                    <div class="row form-group">
+                      <div class="col-1" *ngIf="!data.readOnly">
+                        <i
+                          class="fa fa-ellipsis-v dndHandle"
+                          title="Drag Your Field"
+                          dndHandle
+                        ></i>
+                      </div>
+                      <div class="col-7">
+                        <!-- <i [ngClass]="item.icon" class="fa pull-left"></i>
+                <h5>{{item.label}}
+                <span *ngIf="item.required" class="red">*</span></h5> -->
+                        <div *ngIf="item.type == 'text'">
+                          <mat-form-field class="formfield">
+                            <input
+                              matInput
+                              class="formname"
+                              type="text"
+                              id="{{ item.name }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            />
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'email'">
+                          <mat-form-field class="formfield">
+                            <input
+                              matInput
+                              type="email"
+                              class="formname"
+                              id="{{ item.name }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            />
+                            <mat-error *ngIf="item.required" class="text-danger"
+                              >*</mat-error
+                            >
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'phone'">
+                          <mat-form-field class="formfield">
+                            <input
+                              matInput
+                              type="text"
+                              class="formname"
+                              id="{{ item.name }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            />
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'number'">
+                          <mat-form-field class="formfield">
+                            <input
+                              matInput
+                              type="number"
+                              class="formname"
+                              id="{{ item.name }}"
+                              min="{{ item.min }}"
+                              max="{{ item.max }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            />
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'date'">
+                          <mat-form-field class="formfield">
+                            <input
+                              matInput
+                              [matDatepicker]="picker"
+                              class="formname"
+                              id="{{ item.name }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            />
+                            <mat-datepicker-toggle
+                              matSuffix
+                              [for]="picker"
+                            ></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+
+                        <div *ngIf="item.type == 'textarea'">
+                          <mat-form-field class="formfield">
+                            <textarea
+                              matInput
+                              id="{{ item.name }}"
+                              placeholder="{{ item.placeholder }}"
+                              [disabled]="data.readOnly"
+                            ></textarea>
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'file'">
+                          <label>{{ item.label }} </label>
+                          <label *ngIf="item.required" class="text-danger"
+                            >*</label
+                          >
+                          <!-- <input type="file" class="form-control" id="{{ item.name }}"
+                          placeholder="{{ item.placeholder }}" [disabled]="data.readOnly" /> -->
+                          <tt-upload-file></tt-upload-file>
+                        </div>
+
+                        <div *ngIf="item.type == 'autocomplete'">
+                          <mat-form-field class="formfield">
+                            <label>{{ item.label }}</label>
+                            <label *ngIf="item.required" class="text-danger"
+                              >*</label
+                            >
+                            <mat-select
+                              id="{{ item.name }}"
+                              [disabled]="data.readOnly"
+                            >
+                              <mat-option
+                                *ngFor="let v of item.values"
+                                [value]="v.value"
+                                >{{ v.label }}</mat-option
+                              >
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                        <div *ngIf="item.type == 'checkbox'">
+                          <label>{{ item.label }}</label>
+                          <label *ngIf="item.required" class="text-danger"
+                            >*</label
+                          >
+                          <div
+                            *ngFor="let v of item.values"
+                            class="inline-form-group"
+                          >
+                            <label class="cust-check-bx">
+                              <mat-checkbox
+                                class="example-margin"
+                                [value]="v.value"
+                                name="{{ item.name }}"
+                                (click)="toggleValue(v)"
+                                [disabled]="data.readOnly"
+                              >
+                                {{ v.label }}</mat-checkbox
+                              >
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div *ngIf="item.type == 'radio'">
+                          <label>{{ item.label }}</label>
+                          <label *ngIf="item.required" class="text-danger"
+                            >*</label
+                          >
+                          <div
+                            *ngFor="let v of item.values"
+                            class="inline-form-group"
+                          >
+                            <label class="cust-check-bx">
+                              <mat-radio-button
+                                [value]="v.value"
+                                name="{{ item.name }}"
+                                [disabled]="data.readOnly"
+                              >
+                                {{ v.label }}</mat-radio-button
+                              >
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
+                        </div>
+                        <!-- <div *ngIf="item.type == 'button'" class="btn-cont">
+                        <input type="{{ item.subtype }}" (click)="submit()" value="{{ item.label }}"
+                          class="btn btn-primary" id="{{ item.name }}"  [disabled]="data.readOnly"/>
+                      </div> -->
+                      </div>
+                      <div class="col-4" *ngIf="!data.readOnly">
+                        <i
+                          *ngIf="item.toggle"
+                          (click)="item.toggle = false"
+                          class="fa fa-chevron-up pull-right"
+                        ></i>
+                        <i
+                          *ngIf="!item.toggle"
+                          (click)="item.toggle = true"
+                          class="fa fa-chevron-down pull-right"
+                        ></i>
+                        <i
+                          (click)="removeField(i)"
+                          class="fa fa-trash pull-right"
+                        ></i>
+                      </div>
+                    </div>
+                    <div *ngIf="item.toggle" class="toggle-Wrapper">
+                      <div class="form-group">
+                        <label>Required</label>
+                        <i
+                          *ngIf="item.required"
+                          (click)="item.required = false"
+                          class="fa fa-toggle-on red"
+                        ></i>
+                        <i
+                          *ngIf="!item.required"
+                          (click)="item.required = true"
+                          class="fa fa-toggle-off"
+                        ></i>
+                        <span class="pull-right ucfirst">{{ item.type }}</span>
+                      </div>
+                      <div class="form-group">
+                        <label>Label</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="item.label"
+                          [disabled]="data.readOnly"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Name</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="item.name"
+                          [disabled]="data.readOnly"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Placeholder</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="item.placeholder"
+                          [disabled]="data.readOnly"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Regex</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="item.regex"
+                          [disabled]="data.readOnly"
+                        />
+                      </div>
+                      <div *ngIf="item.regex" class="form-group">
+                        <label>Error text</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="item.errorText"
+                          [disabled]="data.readOnly"
+                        />
+                      </div>
+
+                      <!-- number -->
+                      <div *ngIf="item.type == 'number'" class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label>Min</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              [(ngModel)]="item.min"
+                              [disabled]="data.readOnly"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label>Max</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              [(ngModel)]="item.max"
+                              [disabled]="data.readOnly"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- radio || checkbox || autocomplete -->
+                      <div
+                        *ngIf="
+                          item.type == 'radio' ||
+                          item.type == 'checkbox' ||
+                          item.type == 'autocomplete'
+                        "
+                      >
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="form-group">
+                              <label>Label</label>
+                            </div>
+                          </div>
+                          <div class="col-5">
+                            <div class="form-group">
+                              <label>Value</label>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label>Action</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          *ngFor="let i of item.values; let valueIndex = index"
+                          class="row"
+                        >
+                          <div class="col-5">
+                            <div class="form-group">
+                              <input
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="i.label"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-5">
+                            <div class="form-group">
+                              <input
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="i.value"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label (click)="item.values.splice(valueIndex, 1)"
+                                >remove</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="form-group">
+                              <input
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="value.label"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-5">
+                            <div class="form-group">
+                              <input
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="value.value"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label (click)="addValue(item.values)">Add</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--optional placeholder element for dropzone-->
+                  <!--will be removed from DOM on init-->
+                  <div class="dndPlaceholder" dndPlaceholderRef></div>
+                </section>
+              </div>
+              <div class="sample-code">
+                <pre *ngIf="show == 1 && model"> {{ model | json }} </pre>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div *ngIf="report" class="padding20 white-bg">
+        <div class="row">
+          <div class="col-12 spacer30"></div>
+          <div *ngIf="reports?.length > 0" class="col-12">
+            <div *ngFor="let records of reports" class="report-block">
+              <div *ngFor="let record of records.attributes">
+                <div *ngIf="record.type != 'button' && record.type != 'paragraph'" class="row">
+                  <div class="col-4">{{ record.label }}</div>
+                  <div class="col-8">{{ record.value }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </mat-dialog-content>
+  <!-- <hr /> -->
+  <mat-dialog-actions *ngIf="!data.readOnly">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button color="primary" (click)="close(data.fields)">
+      {{ data.saveBtnTxt || defaultSaveBtnTxt }}
+    </button>
+    <!-- <button (click)="show = 1" class="btn btn-info">
+      Click to Show the Json data
+    </button> -->
+  </mat-dialog-actions>
+</div>

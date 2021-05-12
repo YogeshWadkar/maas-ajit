@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Attach File</h1>
+
+<div class="file-upload-wrapper">
+  <span class="fill-remaining-space"></span>
+  <input
+    class="ng-hide"
+    id="input-file-id"
+    type="file"
+    ng2FileSelect
+    [uploader]="uploader"
+    (onFileSelected)="onFileSelected()"
+  />
+  <label for="input-file-id" class="mat-button mat-raised-button mat-primary">
+    Select a file
+  </label>
+  <span class="fill-remaining-space"></span>
+</div>

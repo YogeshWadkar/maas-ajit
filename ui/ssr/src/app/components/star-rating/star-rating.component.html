@@ -1,0 +1,6 @@
+<span *ngIf="!rating">Not Rated</span>
+<mat-icon [class.checked]="0 < rating" *ngIf="rating">star</mat-icon>
+<mat-icon [class.checked]="1 < rating" *ngIf="rating">star</mat-icon>
+<mat-icon [class.checked]="2 < rating" *ngIf="rating">star</mat-icon>
+<mat-icon [class.checked]="3 < rating" *ngIf="rating">star</mat-icon>
+<mat-icon [class.checked]="4 < rating" *ngIf="rating">star</mat-icon>

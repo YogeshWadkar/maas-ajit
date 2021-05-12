@@ -1,0 +1,109 @@
+<div>
+  <mat-toolbar>
+    <span>Dashboard</span>
+  </mat-toolbar>
+
+  <mat-grid-list cols="6" rowHeight="350px">
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Total Mentors</mat-card-title>
+        <mat-card-subtitle>Total mentors in the system (%)</mat-card-subtitle>
+        <mat-card-content>
+          <canvas id="totalUsersChart"></canvas>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/sponsor/manage-mentors"
+          >
+            View Your Mentors
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Your Contribution</mat-card-title>
+        <mat-card-subtitle
+          >Month-wise mentors and hours spent</mat-card-subtitle
+        >
+        <mat-card-content>
+          <canvas id="monthwiseUsersChart"></canvas>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/sponsor/contribution-report"
+          >
+            View Contribution Report
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2" colspan="2">
+      <mat-card>
+        <mat-card-title>Top Mentors</mat-card-title>
+        <mat-card-subtitle>Top rated and most engaged</mat-card-subtitle>
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="mentorData.length"
+            [data]="mentorData"
+            [columns]="mentorColumns"
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/sponsor/manage-mentors"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Meetings Trend</mat-card-title>
+        <mat-card-subtitle
+          >Total meetings vis-à-vis completed and rejected</mat-card-subtitle
+        >
+        <mat-card-content>
+          <div>
+            <div style="float:left" width="100px">
+              <canvas id="meetingsChart"></canvas>
+            </div>
+            <div style="text-align: center;">
+              <p style="font-size:0.8em;">Average meeting time</p>
+              <p style="font-size: 2em;">{{ avgMeetingDuration }} min</p>
+            </div>
+          </div>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                    <button mat-button color="primary">View All</button>
+                </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Utilisation</mat-card-title>
+        <mat-card-subtitle>Availability vs. allocation</mat-card-subtitle>
+        <mat-card-content>
+          <canvas id="availabilityVsAllocationChart"></canvas>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/sponsor/utilization-report"
+          >
+            View Utilization Report
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

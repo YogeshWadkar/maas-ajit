@@ -1,0 +1,94 @@
+{
+  "name": "TTUserDetail",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "photoUrl": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "avatarUrl": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "dob": {
+      "type": "date",
+      "required": false
+    },
+    "address": {
+      "type": "string",
+      "required": false
+    },
+    "pincode": {
+      "type": "string",
+      "required": false
+    },
+    "about": {
+      "type": "string",
+      "required": false
+    },
+    "gender": {
+      "type": "string",
+      "required": false
+    },
+    "ethAddress": {
+      "type": "string",
+      "required": false
+    },
+    "ethKey": {
+      "type": "string",
+      "required": false
+    },
+    "avgRating": {
+      "type": "number",
+      "required": false,
+      "default": 0,
+      "postgresql": {
+        "dataType": "decimal",
+        "precision": 2,
+        "scale": 2
+      }
+    },
+    "totalVotes": {
+      "type": "number",
+      "required": false,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    },
+    "country": {
+      "type": "belongsTo",
+      "model": "Country",
+      "foreignKey": ""
+    },
+    "state": {
+      "type": "belongsTo",
+      "model": "State",
+      "foreignKey": ""
+    },
+    "city": {
+      "type": "belongsTo",
+      "model": "City",
+      "foreignKey": ""
+    },
+    "importedFrom": {
+      "type": "belongsTo",
+      "model": "ImportLog",
+      "foreignKey": ""
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

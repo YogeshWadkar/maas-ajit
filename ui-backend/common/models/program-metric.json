@@ -1,0 +1,25 @@
+{
+    "name": "ProgramMetric",
+    "base": "TTBasePersistedModel",
+    "properties": {
+      "type": {
+        "type": "string",
+        "required": true
+      },
+      "on": {
+        "type": "date",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {
+      "program": {
+        "type": "belongsTo",
+        "model": "Program",
+        "foreignKey": ""
+      }
+    },
+    "acls": [],
+    "methods": {}
+}
+  

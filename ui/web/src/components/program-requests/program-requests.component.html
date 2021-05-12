@@ -1,0 +1,26 @@
+<div>
+    <mat-toolbar>
+      <span>Enrolment Requests</span>
+      <span class="fill-remaining-space"></span>
+      <mat-form-field>
+        <mat-select
+          matNativeControl
+          required
+          [(value)]="selectedStatus"
+          (selectionChange)="applyFilter()"
+        >
+          <mat-option value="all">All</mat-option>
+          <mat-option *ngFor="let status of statuses" [(value)]="status.id">{{status.description}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+    <tt-dynamic-table
+      [data]="data"
+      [columns]="columns[role]"
+      [totalCount]="totalCount"
+      (pageChanged)="onPageChanged($event)"
+      (actionClicked)="onActionClicked($event)"
+      (actionableClicked)="onActionableClicked($event)"
+    ></tt-dynamic-table>
+  </div>
+  

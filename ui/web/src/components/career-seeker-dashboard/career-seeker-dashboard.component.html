@@ -1,0 +1,130 @@
+<div>
+  <mat-toolbar>
+    <span>Dashboard</span>
+  </mat-toolbar>
+
+  <mat-grid-list [cols]="adSlides.length > 0 ? 7 : 6" rowHeight="350px">
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Matching Mentors</mat-card-title>
+        <mat-card-subtitle
+          >Recent mentors with matching skills</mat-card-subtitle
+        >
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="mentors.length"
+            [data]="mentors"
+            [columns]="mentorsColumns"
+            (actionableClicked)="onUserActionableClicked($event.record.id)"
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <mat-card-footer>
+          <span class="footer-note"
+            >{{ mentorsCount || "No" }} more mentors</span
+          >
+          <button
+            mat-button
+            color="primary"
+            routerLink="/career-seeker/search-mentor"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Upcoming Meetings</mat-card-title>
+        <mat-card-subtitle>Meetings with mentors</mat-card-subtitle>
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="meetings.length"
+            [data]="meetings"
+            [columns]="meetingsColumns"
+            (actionableClicked)="
+              onUserActionableClicked($event.record.mentorUserId)
+            "
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <mat-card-footer>
+          <span class="footer-note"
+            >{{ meetingsCount || "No" }} more upcoming</span
+          >
+          <button
+            mat-button
+            color="primary"
+            routerLink="/career-seeker/pending-meetings"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="2" colspan="2">
+      <tt-feed-card [feeds]="feeds"></tt-feed-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="adSlides.length > 0" rowspan="2" colspan="1">
+      <tt-ad-banner [slides]="adSlides" class="ad-banner" (selected)="handleJoin($event)"></tt-ad-banner>
+    </mat-grid-tile>
+    
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Pending Tasks</mat-card-title>
+        <mat-card-subtitle>Recent pending Tasks</mat-card-subtitle>
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="tasks.length"
+            [data]="tasks"
+            [columns]="tasksColumns"
+            (actionClicked)="onActionClicked($event)"
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <mat-card-footer>
+          <span class="footer-note">{{ tasksCount || "No" }} more pending</span>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/career-seeker/actions-tracker"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Recent Skill Ratings</mat-card-title>
+        <mat-card-subtitle>Your skill ratings</mat-card-subtitle>
+        <mat-card-content>
+          <div class="no-data" *ngIf="assessments.length == 0">
+            <img src="../../assets/images/no-data.png" />
+            <span>No matching data found!</span>
+          </div>
+          <p *ngFor="let assessment of assessments">
+            <span class="rating-spacing">{{ assessment.skill.name }}</span
+            ><tt-star-rating [rating]="assessment.rating"></tt-star-rating>
+          </p>
+        </mat-card-content>
+        <mat-card-footer>
+          <span class="footer-note"
+            >{{ assessmentsCount || "No" }} more ratings</span
+          >
+          <button
+            mat-button
+            color="primary"
+            routerLink="/career-seeker/self-assessment"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

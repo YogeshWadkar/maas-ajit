@@ -1,0 +1,8 @@
+{
+  "ACTIVITY_UPDATE": "activityupdate",
+  "MEETING_ACTIVITY": "meetingactivity",
+  "TASK_ACTIVITY": "taskactivity",
+  "MEETING_NOTIFICATION": "meetingnotification",
+
+  "DEFAULT_PASSWORD": "password"
+}

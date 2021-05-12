@@ -1,0 +1,96 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="60px" fxLayoutGap.xs="0">
+  <div class="userdata">
+    <!-- column-1 -->
+    <div class="item item-1" fxFlex="28%">
+      <div class="user-profile-left">
+        <img [src]="user.userDetail.photoUrl" />
+        <p></p>
+        <tt-star-rating [rating]="user.userDetail.avgRating"></tt-star-rating>
+        <p class="about-me">
+          <!-- <span class="label">About Me: Professional Bio</span>
+        {{userdetails}} -->
+          <!-- {{ userdetails | slice:0:44 }}{{ userdetails.length > 44 ? '....read more' : '' }} -->
+          <span *ngIf="user.userDetail.about" class="label">About Me:</span>
+          {{ user.userDetail.about }}
+        </p>
+      </div>
+    </div>
+    <!-- cloumn-3 -->
+    <div class="item item-2" fxFlex="35%" fxFlexOrder="3">
+      <div fxLayout="column" fxLayoutAlign="center stretch" class="row right-panel">
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+          <img width="175px" height="110px" src="../../assets/images/Artboard_22.png" />
+        </div>
+
+        <div class="heading-text" fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          Join MaaS to collaborate with {{ user.firstName }}.
+        </div>
+        <div fxLayoutAlign="center stretch" class="text-center free">
+          It is Free !
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch" class="about-txt">
+          As a MaaS member, you'll network with career seekers, mentors and
+          sponsoring organizations.
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <button mat-raised-button class="signup-btn" color="primary" (click)="signup()">
+            Sign Up
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <p>Already have account? <a [href]="signinUrl">Sign In</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- column-2 -->
+    <div class="item item-3" fxFlex>
+      <div>
+        <p class="large-text orange">
+          {{ user.firstName + " " + user.lastName }}
+        </p>
+        <p class="label">{{ user.role.description }}</p>
+        <div *ngIf="user.location.length > 0">
+          <mat-icon class="icon">room</mat-icon>
+          <span>{{ user.location }}</span>
+        </div>
+        <!-- <p style="clear: both;"></p> -->
+        <p></p>
+        <div *ngIf="user.company" fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <div>
+            <mat-icon class="icon">bookmark</mat-icon>
+            <span>Sponsored By: {{ user.company.name }}</span>
+          </div>
+        </div>
+
+        <br />
+        <div class="user-stats">
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.peopleMentored || 0 }}</p>
+              <p class="user-stat-param">Mentored</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.skillsList.length }}</p>
+              <p class="user-stat-param">Skills</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.userDetail.totalVotes }}</p>
+              <p class="user-stat-param">Rated</p>
+            </mat-card>
+          </div>
+          <div class="user-stat">
+            <mat-card>
+              <p class="large-text">{{ user.userDetail.tokenBalance || 0 }}</p>
+              <p class="user-stat-param">Tokens</p>
+            </mat-card>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </div>
+</div>

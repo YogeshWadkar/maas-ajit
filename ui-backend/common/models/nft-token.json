@@ -1,0 +1,24 @@
+{
+  "name": "NFTToken",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Audit": {},
+    "Count": {}
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "allocateToken"
+    }
+  ],
+  "methods": {}
+}

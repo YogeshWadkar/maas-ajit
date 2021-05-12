@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="../../client/assets/fonts/satisfy.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      .bg {
+        /* background-image: url('../assets/images/banner.png') no-repeat center center fixed; */
+        background-image: url(<%=externalUrl%>/assets/images/banner.png)
+          no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-size: 100% 100%;
+        height: 620px;
+      }
+
+      .column1 {
+        float: left;
+        width: 40%;
+        position: relative;
+        top: 135px;
+        left: 60px;
+      }
+
+      .column2 {
+        position: relative;
+        top: 170px;
+        float: right;
+        width: 60%;
+      }
+
+      .profile {
+        position: relative;
+        margin-left: 85px;
+        top: 8px;
+      }
+
+      .userimg {
+        width: 275px;
+        height: 260px;
+        border-radius: 100%;
+      }
+
+      .starimg {
+        width: 190px;
+        margin-top: 5px;
+        margin-left: 39px;
+        height: auto;
+      }
+
+      .about {
+        position: relative;
+        text-align: justify;
+        font-size: x-large;
+        color: #ffff;
+        margin-top: 55px;
+        width: 95%;
+      }
+
+      /* 2 styles */
+      .label {
+        font-weight: 200 !important;
+        margin-top: -45px;
+        font-size: 1.9em;
+        margin-left: 240px;
+        color: #ffff;
+      }
+
+      .orange {
+        color: #ffff;
+        font-size: 3.6em;
+        margin-top: -103px;
+        margin-left: 245px;
+        position: relative;
+      }
+
+      .sponser span {
+        margin-left: 240px;
+        font-size: 1.8em;
+        position: absolute;
+        margin-top: -14px;
+        color: #ffff;
+      }
+
+      .large-text {
+        font-size: 3.2em;
+        margin-bottom: 0px;
+        margin-top: 6px;
+        margin-left: 10px;
+      }
+
+      .user-stat1 {
+        margin-top: 92px;
+        margin-left: 150px;
+        color: #ffff;
+      }
+
+      .user-stat2 {
+        margin-top: -107px;
+        margin-left: 310px;
+        color: #ffff;
+      }
+
+      .user-stat3 {
+        margin-top: -107px;
+        margin-left: 468px;
+        color: #ffff;
+      }
+
+      .user-stat4 {
+        margin-top: -111px;
+        margin-left: 625px;
+        color: #ffff;
+      }
+
+      .user-stat-param {
+        font-size: 1.4em;
+        margin-top: 1px;
+      }
+
+      .user-stat-param2 {
+        font-size: 1.4em;
+        margin-top: 2px;
+        margin-left: 12px;
+      }
+
+      .user-stat-param3 {
+        font-size: 1.4em;
+        margin-top: 2px;
+        margin-left: 12px;
+      }
+
+      .user-stat-param4 {
+        font-size: 1.4em;
+        margin-top: 2px;
+        margin-left: 12px;
+      }
+      .noshadow {
+        box-shadow: none !important;
+        background: none !important;
+        color: #ffff !important;
+      }
+    </style>
+  </head>
+
+  <body background="">
+    <div class="bg">
+      <div class="column1">
+        <div class="profile">
+          <!-- <img src="<%= userImg %>" class="userimg" /> -->
+          <img src="../assets/images/default-profile.png" class="userimg" />
+        </div>
+        <div class="profile">
+          <p class="starimg"><%= userrating %></p>
+        </div>
+      </div>
+
+      <div class="column2">
+        <div class="user-role">
+          <p class="large-text1 orange">
+            <%= userName %>
+          </p>
+          <p class="label"><%= userRole %></p>
+          <div class="sponser">
+            <span> <%= companyName %></span>
+          </div>
+        </div>
+
+        <div class="user-stats">
+          <div class="user-stat1">
+            <mat-card class="noshadow">
+              <p class="large-text"><%= userMentored %></p>
+              <p class="user-stat-param">Mentored</p>
+            </mat-card>
+          </div>
+          <div class="user-stat2">
+            <mat-card class="noshadow">
+              <p class="large-text"><%= userSkills %></p>
+              <p class="user-stat-param2">Skills</p>
+            </mat-card>
+          </div>
+          <div class="user-stat3">
+            <mat-card class="noshadow">
+              <p class="large-text"><%= userRated %></p>
+              <p class="user-stat-param3">Rated</p>
+            </mat-card>
+          </div>
+          <div class="user-stat4">
+            <mat-card class="noshadow">
+              <p class="large-text"><%= userTokens %></p>
+              <p class="user-stat-param4">Tokens</p>
+            </mat-card>
+          </div>
+        </div>
+        <div class="about">
+          <p><%= userAbout %></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

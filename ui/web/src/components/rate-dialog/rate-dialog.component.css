@@ -1,0 +1,56 @@
+.checked {
+  content: "\2605";
+  color: #ff5722;
+  position: absolute;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+  font-size: 3em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  color: #ff5722;
+  cursor: pointer;
+}
+
+.very-bad {
+  float: left;
+  font-size: 0.8em;
+  color: #888888;
+}
+
+.very-good {
+  float: right;
+  font-size: 0.8em;
+  color: #888888;
+}
+
+.reset-float {
+  clear: both;
+}
+
+/* mat-icon {
+      font-size: 3em;
+      width: 1.1em;
+  }
+
+.checked {
+    color: #ff5722;
+} */
+
+/* mat-icon:hover:before,
+mat-icon:hover ~ mat-icon:before {
+    content: "\2605";
+     position: absolute;
+     color: #ff5722;
+     cursor: pointer;
+} */

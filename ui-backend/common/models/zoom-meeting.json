@@ -1,0 +1,32 @@
+{
+  "name": "ZoomMeeting",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "zoomMeetingId": {
+      "type": "string",
+      "required": false
+    },
+    "zoomMeetingUUID": {
+      "type": "string",
+      "required": false
+    },
+    "apiStatus": {
+      "type": "string",
+      "required": true
+    },
+    "apiResponse": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "meeting": {
+      "type": "belongsTo",
+      "model": "Meeting",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

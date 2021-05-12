@@ -1,0 +1,41 @@
+{
+  "name": "WorkExperience",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "organisation": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "startDt": {
+      "type": "date",
+      "required": true
+    },
+    "endDt": {
+      "type": "date",
+      "required": false
+    },
+    "isCurrentOrg": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Slot",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "fromTm": {
+      "type": "date",
+      "required": true
+    },
+    "toTm": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

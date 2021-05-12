@@ -1,0 +1,12 @@
+<div>
+  <mat-toolbar>
+    <span>Mentee Assessment</span>
+  </mat-toolbar>
+
+  <tt-dynamic-table
+    [data]="data"
+    [columns]="columns"
+    (actionClicked)="onActionClicked($event)"
+    (actionableClicked)="onActionableClicked($event)"
+  ></tt-dynamic-table>
+</div>

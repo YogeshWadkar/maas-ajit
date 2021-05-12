@@ -1,0 +1,557 @@
+<div>
+  <mat-toolbar>
+    <span>Assessment Process</span>
+  </mat-toolbar>
+</div>
+
+<!-- step---------------------1 -->
+<div class="slevel1">
+  <div
+    class="container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="50px"
+    fxLayoutGap.xs="0"
+  >
+    <div class="item" fxFlex="65%">
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+        <div class="step1">
+          <div class="step1-box">
+            <small class="small1" fxLayoutAlign="center stretch">Level</small>
+            <div class="circle" fxLayoutAlign="center stretch">
+              <h3 class="one" fxLayoutAlign="center stretch">1</h3>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <canvas class="level1chart" id="LevelOneChart"></canvas>
+          <h4 class="job1">Job Readiness</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="item" fxFlex="35%" fxFlexOrder="3">
+      <canvas class="totalchart" id="totalLevelChart"></canvas>
+      <h4 class="totaljob">Total Job Readiness</h4>
+    </div>
+  </div>
+  <!-- sparate row -->
+  <div
+    style=""
+    class="container userrows"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="60px"
+    fxLayoutGap.xs="0"
+  >
+    <div fxLayout="row" class="stepflow1">
+      <div
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="left"
+        fxLayoutGap="50px"
+        fxLayoutGap.xs="0"
+      >
+        <div class="item skillbox">
+          <div class="triangle-topleft">
+            <mat-icon class="check1">check_circle</mat-icon>
+          </div>
+          <div class="user1" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Big data
+            </div>
+          </div>
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername1">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox">
+          <div class="nonuser1" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Java
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername1">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <!-- four -->
+        <div class="item skillbox">
+          <div class="triangle-topleft">
+            <mat-icon class="check1">check_circle</mat-icon>
+          </div>
+          <div class="user1" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Node js
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername1">
+              Ramana
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox">
+          <div class="nonuser1" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Angular
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername1">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox">
+          <div class="triangle-topleft">
+            <mat-icon class="check1">check_circle</mat-icon>
+          </div>
+          <div class="user1" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Python
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername1">
+              Naveen
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- step--------------------2 -->
+
+<div class="slevel2">
+  <div
+    class="container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="50px"
+    fxLayoutGap.xs="0"
+  >
+    <div class="item" fxFlex="60%" fxLayoutAlign="center">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="center stretch"
+        class="row right-panel"
+      >
+        <div class="item">
+          <canvas class="level2chart" id="LevelTwoChart"></canvas>
+          <h4 class="job2">Job Readiness</h4>
+        </div>
+      </div>
+    </div>
+    <div class="item" fxFlex="40%">
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+        <div class="step2">
+          <div class="step2-box">
+            <small class="small1" fxLayoutAlign="center stretch" style=""
+              >Level</small
+            >
+            <div class="circle" fxLayoutAlign="center stretch">
+              <h3 class="two" fxLayoutAlign="center stretch">2</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sparate row -->
+  <div
+    style=""
+    class="container userrows2"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="60px"
+    fxLayoutGap.xs="0"
+  >
+    <div fxLayout="row" class="stepflow2">
+      <div
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="end"
+        fxLayoutGap="50px"
+        fxLayoutGap.xs="0"
+      >
+        <div class="item skillbox2">
+          <div class="nonuser2" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon2">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Big data
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername2">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox2">
+          <div class="triangle-topleft2">
+            <mat-icon class="check2">check_circle</mat-icon>
+          </div>
+          <div class="user2" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon2">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Java
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername2">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <!-- four -->
+        <div class="item skillbox2">
+          <div class="nonuser2" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon2">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Node js
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername2">
+              Ramana
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox2">
+          <div class="triangle-topleft2">
+            <mat-icon class="check2">check_circle</mat-icon>
+          </div>
+          <div class="user2" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon2">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Angular
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername2">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox2">
+          <div class="triangle-topleft2">
+            <mat-icon class="check2">check_circle</mat-icon>
+          </div>
+          <div class="user2" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon2">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Angular
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername2">
+              Srikanth
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- step -------------------3 -->
+<div class="slevel3">
+  <div
+    class="container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="50px"
+    fxLayoutGap.xs="0"
+  >
+    <div class="item" fxFlex="70%">
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center">
+        <div class="step3">
+          <div class="step3-box">
+            <small class="small1" fxLayoutAlign="center stretch">Level</small>
+            <div class="circle" fxLayoutAlign="center stretch">
+              <h3 class="three" fxLayoutAlign="center stretch">3</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item" fxFlex="33%" fxFlexOrder="3">
+      <canvas class="level3chart" id="LevelthreeChart"></canvas>
+      <h4 class="job3">Job Readiness</h4>
+    </div>
+  </div>
+
+  <div
+    style=""
+    class="container userrows3"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="60px"
+    fxLayoutGap.xs="0"
+  >
+    <div fxLayout="row" class="stepflow3">
+      <div
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="left"
+        fxLayoutGap="50px"
+        fxLayoutGap.xs="0"
+      >
+        <div class="item skillbox3">
+          <div class="triangle-topleft3">
+            <mat-icon class="check3">check_circle</mat-icon>
+          </div>
+          <div class="user3" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon3">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Big data
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername3">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox3">
+          <div class="nonuser3" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon3">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Java
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername3">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox3">
+          <div class="triangle-topleft3">
+            <mat-icon class="check3">check_circle</mat-icon>
+          </div>
+          <div class="user3" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon3">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Node js
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername3">
+              Ramana
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox3">
+          <div class="nonuser3" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="nonselficon3">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Angular
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername3">
+              Srikanth
+            </div>
+          </div>
+        </div>
+
+        <div class="item skillbox3">
+          <div class="triangle-topleft3">
+            <mat-icon class="check3">check_circle</mat-icon>
+          </div>
+          <div class="user3" style=" ">
+            <div fxLayoutAlign="center stretch">
+              <mat-icon class="selficon3">class</mat-icon>
+            </div>
+            <div fxLayoutAlign="center stretch" class="text1">
+              Python
+            </div>
+          </div>
+
+          <div>
+            <div fxLayoutAlign="center stretch" class="">
+              <img
+                src="../../assets/images/default-profile.png"
+                alt="user-Img"
+                class="mentorimg"
+              />
+            </div>
+            <div fxLayoutAlign="center stretch" class="mentername3">
+              Naveen
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

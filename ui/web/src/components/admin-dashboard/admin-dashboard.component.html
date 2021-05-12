@@ -1,0 +1,172 @@
+<div>
+  <mat-toolbar>
+    <span>Dashboard</span>
+  </mat-toolbar>
+
+  <mat-grid-list cols="5" rowHeight="350px">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Total Users</mat-card-title>
+        <mat-card-subtitle>Total users in the system (%)</mat-card-subtitle>
+        <mat-card-content>
+          <canvas id="totalUsersChart"></canvas>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                        <button mat-button color="primary" routerLink="/admin/view-all-user">View All</button>
+                    </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Sign Ups</mat-card-title>
+        <mat-card-subtitle>Monthwise user signups</mat-card-subtitle>
+        <mat-card-content>
+          <canvas id="monthwiseUsersChart"></canvas>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                    <button mat-button routerLink="/admin/view-all-user" color="primary">View All</button>
+                </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile>
+            <mat-card>
+                <mat-card-title>Assessments Trend</mat-card-title>
+                <mat-card-subtitle>Total self assessments vs. mentor assessments</mat-card-subtitle>
+                <mat-card-content>
+                    <canvas id="totalSelfAssessmentChart"></canvas>
+                </mat-card-content>
+                <mat-card-footer>
+                    <button mat-button color="primary">View All</button>
+                </mat-card-footer>
+            </mat-card>
+        </mat-grid-tile> -->
+    <mat-grid-tile colspan="2">
+      <mat-card>
+        <mat-card-title>Meetings Trend</mat-card-title>
+        <mat-card-subtitle
+          >Total meetings vis-à-vis completed and rejected</mat-card-subtitle
+        >
+        <mat-card-content>
+          <div>
+            <div style="float:left" width="100px">
+              <canvas id="meetingsChart"></canvas>
+            </div>
+            <div style="text-align: center;">
+              <p style="font-size:0.8em;">Average meeting time</p>
+              <p style="font-size: 2em;">{{ avgMeetingDuration }} min</p>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/admin/completed-meetings"
+          >
+            View All Completed
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Top Mentors</mat-card-title>
+        <mat-card-subtitle>Top rated and most engaged</mat-card-subtitle>
+        <mat-card-content>
+          <div class="no-data" *ngIf="topMentors.length == 0">
+            <img src="../../assets/images/no-data.png" />
+            <span>No matching data found!</span>
+          </div>
+          <div *ngFor="let mentor of topMentors">
+            <p>{{ mentor.firstName }} {{ mentor.lastName }}</p>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <button
+            mat-button
+            color="primary"
+            routerLink="/admin/view-all-mentor"
+          >
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Top Seekers</mat-card-title>
+        <mat-card-subtitle>Top rated and most engaged</mat-card-subtitle>
+        <mat-card-content>
+          <div class="no-data" *ngIf="topSeekers.length == 0">
+            <img src="../../assets/images/no-data.png" />
+            <span>No matching data found!</span>
+          </div>
+          <div *ngFor="let seeker of topSeekers">
+            <p>{{ seeker.firstName }} {{ seeker.lastName }}</p>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                    <button mat-button color="primary">View All</button>
+                </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Top Skills</mat-card-title>
+        <mat-card-subtitle>Most users with the skill</mat-card-subtitle>
+        <mat-card-content>
+          <!-- <tt-dynamic-table [pagination]="false" [data]="skillData" [columns]="skillColumns"></tt-dynamic-table> -->
+          <div class="no-data" *ngIf="topSkills.length == 0">
+            <img src="../../assets/images/no-data.png" />
+            <span>No matching data found!</span>
+          </div>
+          <div *ngFor="let skill of topSkills">
+            <p>{{ skill.name }}</p>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <button mat-button color="primary" routerLink="/admin/skill">
+            View All
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Top Countries</mat-card-title>
+        <mat-card-subtitle>Most number of users from</mat-card-subtitle>
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="countryData.length"
+            [data]="countryData"
+            [columns]="countryColumns"
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                    <button mat-button color="primary">View All</button>
+                </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Top Companies</mat-card-title>
+        <mat-card-subtitle>Most number of users from</mat-card-subtitle>
+        <mat-card-content>
+          <tt-dynamic-table
+            [pagination]="false"
+            [totalCount]="companyData.length"
+            [data]="companyData"
+            [columns]="companyColumns"
+          ></tt-dynamic-table>
+        </mat-card-content>
+        <!-- <mat-card-footer>
+                    <button mat-button color="primary">View All</button>
+                </mat-card-footer> -->
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

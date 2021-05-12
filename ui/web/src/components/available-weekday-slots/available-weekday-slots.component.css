@@ -1,0 +1,83 @@
+mat-accordion {
+  width: 100%;
+}
+
+mat-card {
+  margin-bottom: 10px;
+}
+
+mat-panel-title {
+  color: #ff5722;
+}
+
+table {
+  width: 100%;
+}
+
+.fill-half {
+  width: 50%;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+      Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+  flex-basis: 0;
+}
+
+.mat-tab-label {
+  height: 65px;
+  padding: 0 44px !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  opacity: 0.6;
+  min-width: 200px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  font-size: 16px;
+}
+.weekbottom
+{
+  margin-top: 15px;
+}
+/* ------ tabs styles in angular ------------- */
+
+/* Styles for tab labels */
+.mat-tab-header {
+  
+    margin-left: 18px;
+}
+.mat-tab-label {
+  min-width: 190px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+ 
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color:rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+}
+
+/* Styles for the ink bar */
+/* .mat-ink-bar {
+  background-color: green !important;
+} */
+
+p {
+font-family: Lato;
+}

@@ -1,0 +1,19 @@
+<div>
+    <mat-toolbar>
+      <span>Manage Programs</span>
+      <span class="fill-remaining-space"></span>
+      <button *ngIf="role != 'admin'" mat-raised-button color="accent" (click)="addProgram()">
+        <mat-icon>add</mat-icon>
+        Add
+      </button>
+    </mat-toolbar>
+    <tt-dynamic-table
+      [data]="data"
+      [columns]="columns[role]"
+      [totalCount]="totalCount"
+      (pageChanged)="onPageChanged($event)"
+      (actionClicked)="onActionClicked($event)"
+      (actionableClicked)="onActionableClicked($event)"
+    ></tt-dynamic-table>
+  </div>
+  

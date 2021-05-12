@@ -1,0 +1,38 @@
+{
+  "name": "SlotsAllowed",
+  "base": "TTBasePersistedModel",
+  "properties": {
+    "fromTm": {
+      "type": "date",
+      "required": true
+    },
+    "toTm": {
+      "type": "date",
+      "required": true
+    },
+    "duration": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "slot": {
+      "type": "belongsTo",
+      "model": "Slot",
+      "foreignKey": ""
+    },
+    "weekday": {
+      "type": "belongsTo",
+      "model": "Weekday",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "TTUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

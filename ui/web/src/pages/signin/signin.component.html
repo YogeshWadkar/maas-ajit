@@ -1,0 +1,102 @@
+<mat-grid-list cols="2" rowHeight="100%">
+  <mat-grid-tile class="left-panel">
+    <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+      <div
+        class="large-text"
+        fxLayout="row"
+        fxLayoutGap="40px"
+        fxLayoutAlign="center stretch"
+      >
+        MaaS
+      </div>
+      <div
+        class="medium-text"
+        fxLayout="row"
+        fxLayoutGap="40px"
+        fxLayoutAlign="center stretch"
+      >
+        Enabling Relevance in Career
+      </div>
+      <p></p>
+      <p></p>
+      <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+        <img src="../../assets/images/login-img.jpg" />
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <form
+      (ngSubmit)="onSubmit(signinFormGroup.value)"
+      [formGroup]="signinFormGroup"
+    >
+      <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+        <div
+          class="heading-text orange-text"
+          fxLayout="row"
+          fxLayoutGap="40px"
+          fxLayoutAlign="center stretch"
+        >
+          Login to your account
+        </div>
+        <p></p>
+        <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center"> -->
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email Address"
+            required
+            email
+            formControlName="email"
+          />
+          <mat-error *ngIf="signinFormGroup.get('email').hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="signinFormGroup.get('email').hasError('email')">
+            Invalid email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            required
+            placeholder="Password"
+            formControlName="password"
+          />
+          <mat-error
+            *ngIf="signinFormGroup.get('password').hasError('required')"
+          >
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <!-- </div> -->
+
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+          <mat-checkbox color="primary" formControlName="keepMeSignedIn"
+            >Remember Me</mat-checkbox
+          >
+          <span class="fill-remaining-space"></span>
+          <a href="" routerLink="/forgot-password">Forgot password?</a>
+        </div>
+        <p></p>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <button
+            mat-raised-button
+            class="full-width"
+            color="primary"
+            type="submit"
+            [disabled]="signinFormGroup.status == 'INVALID'"
+          >
+            Sign In
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center stretch">
+          <p>
+            Don't have a MaaS account yet?
+            <a href="" routerLink="/signup">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

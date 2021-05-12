@@ -1,0 +1,25 @@
+mat-accordion {
+  width: 100%;
+}
+
+mat-card {
+  margin-bottom: 10px;
+}
+
+mat-panel-title {
+  color: #ff5722;
+}
+
+table {
+  width: 100%;
+}
+
+.fill-half {
+  width: 50%;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+      Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}

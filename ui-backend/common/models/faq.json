@@ -1,0 +1,9 @@
+{
+  "name": "Faq",
+  "base": "TTBasePersistedModel",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

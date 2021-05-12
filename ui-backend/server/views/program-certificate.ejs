@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="../../common/fonts/Satisfy-Regular.ttf" type="text/css">
+  <link href="../../common/fonts/satisfy.css" rel="stylesheet" type="text/css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet"> -->
+  <style>
+    .container {
+      width: 1056px;
+      height: 816px;
+      background-image: url(<%= externalUrl %>/assets/images/certificate-design.png);
+      font-size: 36px;
+      font-family: Apple Chancery;
+    }
+
+    .username {
+      position: absolute;
+      top: 352px;
+      left: 364px;
+      font-family: 'Satisfy', cursive;
+    }
+
+    .programname {
+      position: absolute;
+      top: 395px;
+      left: 442px;
+      font-family: 'Satisfy', cursive;
+    }
+
+    .startdate {
+      position: absolute;
+      top: 455px;
+      left: 282px;
+      font-size: 32px;
+      font-family: 'Satisfy', cursive;
+    }
+
+    .enddate {
+      position: absolute;
+      top: 455px;
+      left: 530px;
+      font-size: 32px;
+      font-family: 'Satisfy', cursive;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="username"><%= participantName %></div>
+    <div class="programname"><%= programName %></div>
+    <div class="startdate"><%= startDate %></div>
+    <div class="enddate"><%= endDate %></div>
+  </div>
+
+</body>
+
+</html>

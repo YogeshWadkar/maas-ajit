@@ -1,0 +1,127 @@
+<head>
+    <style>
+      body {
+        font-family: "Roboto", arial, sans-serif;
+        color: #9b9b9b;
+      }
+  
+      p {
+        font-size: 16px;
+      }
+  
+      a {
+        color: #9b9b9b;
+      }
+  
+      a.hover {
+        color: #f06b4e;
+      }
+  
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;
+      }
+      .heading {
+        font-size: 2em;
+        font-weight: bold;
+        color: #414040;
+      }
+  
+      .button a {
+        border: #f06b4e;
+        background-color: #f06b4e;
+        width: 240px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+  
+        border-radius: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+  
+        padding: 0.5em;
+        text-decoration: none;
+        text-align: center;
+      }
+  
+      .wrapper {
+        background-color: #fbe9e7;
+        height: 100%;
+        width: 100%;
+      }
+  
+      .container {
+        background-color: #fafafa;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        padding: 24px;
+      }
+  
+      .center-text {
+        text-align: center;
+      }
+  
+      .small {
+        font-size: 0.8em;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <html>
+    <body>
+      <div class="wrapper">
+        <!-- <img class="center" src="http://localhost:4200/assets/images/imagelists/Artboard_22.png"> -->
+        <img
+          class="center"
+          src="<%= externalUrl %>/assets/images/imagelists/Artboard_22.png"
+        />
+  
+        <div class="container">
+          <h2 class="heading">Request Rejected!</h2>
+  
+          <p>Hi <%= firstName %></p>
+          <br />
+          <p>
+            We are sorry to inform you that your request to join <%= programName %> has been rejected. Please click the button below to
+            view your request.
+          </p>
+  
+          <p>
+            If you did not request for this then please contact us at
+            <a href="mailto:support@maas.com">support@maas.com</a>
+          </p>
+  
+          <br />
+          <p><%= supportUserName %></p>
+          <p>MaaS Support Team</p>
+  
+          <div class="button">
+            <a href="<%= viewLink %>">View Request</a>
+          </div>
+          <p class="center-text">
+            Unable to click on the above button? Click here
+            <br />
+            <a href="<%= viewLink %>" target="_blank">
+              <%= viewLink %>
+            </a>
+          </p>
+          <br />
+        </div>
+        <p class="small center-text">
+          This is an automated message. Please do not reply.
+        </p>
+        <p class="small center-text">
+          Copyright&copy; TalTech Outreach Services Pvt. Ltd.
+        </p>
+      </div>
+    </body>
+</html>
+  

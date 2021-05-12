@@ -1,0 +1,11 @@
+<div>
+  <mat-toolbar>
+    <span>Pending Mentor Approval</span>
+  </mat-toolbar>
+  <tt-dynamic-table
+    [data]="mentors"
+    [totalCount]="mentors.length"
+    [columns]="columns"
+    (actionClicked)="onActionClicked($event)"
+  ></tt-dynamic-table>
+</div>
